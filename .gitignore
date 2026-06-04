@@ -1,0 +1,8 @@
+models/*.pkl
+models/*.keras
+models/*.npy
+models/*.npz
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
