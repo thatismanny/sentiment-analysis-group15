@@ -1,0 +1,18 @@
+{
+  "model": "Bidirectional LSTM",
+  "best_epoch": 4,
+  "actual_epochs": 8,
+  "accuracy": 0.9364878542510121,
+  "weighted_f1": 0.9391800719383065,
+  "macro_f1": 0.8620544452394312,
+  "f1_negative": 0.7607244995233555,
+  "f1_positive": 0.9633843909555069,
+  "roc_auc": 0.9690939752581336,
+  "avg_precision": 0.9953952384514057,
+  "neg_recall": 0.8453389830508474,
+  "pos_recall": 0.9488505747126437,
+  "tn": 399,
+  "fp": 73,
+  "fn": 178,
+  "tp": 3302
+}

@@ -1,0 +1,1188 @@
+[{"stream_name":"stderr","time":6.505415829,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.505473817,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.50548058,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.505484518,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.073804956,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.073853485,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.073859041,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.073863701,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":10.685489839,"data":"/kaggle/input/datasets/nicapotato/womens-ecommerce-clothing-reviews/Womens Clothing E-Commerce Reviews.csv\n"}
+,{"stream_name":"stdout","time":11.626112247,"data":"Shape: (23486, 11)\n"}
+,{"stream_name":"stdout","time":11.675088575,"data":"\u003cclass 'pandas.core.frame.DataFrame'\u003e\n"}
+,{"stream_name":"stdout","time":11.675134691,"data":"RangeIndex: 23486 entries, 0 to 23485\n"}
+,{"stream_name":"stdout","time":11.675140095,"data":"Data columns (total 11 columns):\n"}
+,{"stream_name":"stdout","time":11.675143778,"data":" #   Column                   Non-Null Count  Dtype \n"}
+,{"stream_name":"stdout","time":11.675147136,"data":"---  ------                   --------------  ----- \n"}
+,{"stream_name":"stdout","time":11.675150714,"data":" 0   Unnamed: 0               23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.675154403,"data":" 1   Clothing ID              23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.675157739,"data":" 2   Age                      23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.675161168,"data":" 3   Title                    19676 non-null  object\n"}
+,{"stream_name":"stdout","time":11.675164551,"data":" 4   Review Text              22641 non-null  object\n"}
+,{"stream_name":"stdout","time":11.675167953,"data":" 5   Rating                   23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.675171371,"data":" 6   Recommended IND          23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.67517466,"data":" 7   Positive Feedback Count  23486 non-null  int64 \n"}
+,{"stream_name":"stdout","time":11.675178088,"data":" 8   Division Name            23472 non-null  object\n"}
+,{"stream_name":"stdout","time":11.675181628,"data":" 9   Department Name          23472 non-null  object\n"}
+,{"stream_name":"stdout","time":11.675184815,"data":" 10  Class Name               23472 non-null  object\n"}
+,{"stream_name":"stdout","time":11.675188203,"data":"dtypes: int64(6), object(5)\n"}
+,{"stream_name":"stdout","time":11.67519191,"data":"memory usage: 2.0+ MB\n"}
+,{"stream_name":"stdout","time":11.734017582,"data":"COLUMNS\n"}
+,{"stream_name":"stdout","time":11.734046092,"data":"['Unnamed: 0', 'Clothing ID', 'Age', 'Title', 'Review Text', 'Rating', 'Recommended IND', 'Positive Feedback Count', 'Division Name', 'Department Name', 'Class Name']\n"}
+,{"stream_name":"stdout","time":11.734051937,"data":"\n"}
+,{"stream_name":"stdout","time":11.734056458,"data":"DATA TYPES\n"}
+,{"stream_name":"stdout","time":11.734060433,"data":"Unnamed: 0                  int64\n"}
+,{"stream_name":"stdout","time":11.734073209,"data":"Clothing ID                 int64\n"}
+,{"stream_name":"stdout","time":11.734077115,"data":"Age                         int64\n"}
+,{"stream_name":"stdout","time":11.734080352,"data":"Title                      object\n"}
+,{"stream_name":"stdout","time":11.734083668,"data":"Review Text                object\n"}
+,{"stream_name":"stdout","time":11.734090949,"data":"Rating                      int64\n"}
+,{"stream_name":"stdout","time":11.734093418,"data":"Recommended IND             int64\n"}
+,{"stream_name":"stdout","time":11.734095537,"data":"Positive Feedback Count     int64\n"}
+,{"stream_name":"stdout","time":11.734097602,"data":"Division Name              object\n"}
+,{"stream_name":"stdout","time":11.734099743,"data":"Department Name            object\n"}
+,{"stream_name":"stdout","time":11.734101829,"data":"Class Name                 object\n"}
+,{"stream_name":"stdout","time":11.734103920999999,"data":"dtype: object\n"}
+,{"stream_name":"stdout","time":11.734106004000001,"data":"\n"}
+,{"stream_name":"stdout","time":11.734108821,"data":"SHAPE\n"}
+,{"stream_name":"stdout","time":11.734121172,"data":"Rows: 23,486  |  Columns: 11\n"}
+,{"stream_name":"stdout","time":11.778621893,"data":"                 Missing Count  Missing %\n"}
+,{"stream_name":"stdout","time":11.778643671,"data":"Title                     3810      16.22\n"}
+,{"stream_name":"stdout","time":11.778646742,"data":"Review Text                845       3.60\n"}
+,{"stream_name":"stdout","time":11.778649018,"data":"Division Name               14       0.06\n"}
+,{"stream_name":"stdout","time":11.77865128,"data":"Department Name             14       0.06\n"}
+,{"stream_name":"stdout","time":11.778653435,"data":"Class Name                  14       0.06\n"}
+,{"stream_name":"stdout","time":11.869204575,"data":"Retained shape: (23486, 7)\n"}
+,{"stream_name":"stdout","time":11.903798967,"data":"rating            int64\n"}
+,{"stream_name":"stdout","time":11.903828501,"data":"review_text      object\n"}
+,{"stream_name":"stdout","time":11.90383431,"data":"review_title     object\n"}
+,{"stream_name":"stdout","time":11.903838669,"data":"recommended       int64\n"}
+,{"stream_name":"stdout","time":11.903843336,"data":"helpful_votes     int64\n"}
+,{"stream_name":"stdout","time":11.903847887,"data":"category         object\n"}
+,{"stream_name":"stdout","time":11.903852001,"data":"name             object\n"}
+,{"stream_name":"stdout","time":11.903855855,"data":"dtype: object\n"}
+,{"stream_name":"stdout","time":12.000621338,"data":"Removed 851 duplicate rows (3.62%)\n"}
+,{"stream_name":"stdout","time":12.000643913,"data":"Remaining: 22,635\n"}
+,{"stream_name":"stdout","time":12.169415299,"data":"Nulls remaining:\n"}
+,{"stream_name":"stdout","time":12.169437581,"data":" rating            0\n"}
+,{"stream_name":"stdout","time":12.169443238,"data":"review_text       0\n"}
+,{"stream_name":"stdout","time":12.169447107,"data":"review_title      0\n"}
+,{"stream_name":"stdout","time":12.169450545,"data":"recommended       0\n"}
+,{"stream_name":"stdout","time":12.169453863,"data":"helpful_votes     0\n"}
+,{"stream_name":"stdout","time":12.169458062,"data":"category         13\n"}
+,{"stream_name":"stdout","time":12.169461377,"data":"name             13\n"}
+,{"stream_name":"stdout","time":12.169464816,"data":"dtype: int64\n"}
+,{"stream_name":"stdout","time":12.169468584,"data":"\n"}
+,{"stream_name":"stdout","time":12.169472467,"data":"Shape after null handling: (22634, 7)\n"}
+,{"stream_name":"stdout","time":12.234319313,"data":"category\n"}
+,{"stream_name":"stdout","time":12.234366218,"data":"Tops        10046\n"}
+,{"stream_name":"stdout","time":12.23437148,"data":"Dresses      6144\n"}
+,{"stream_name":"stdout","time":12.234375497,"data":"Bottoms      3661\n"}
+,{"stream_name":"stdout","time":12.234379239999999,"data":"Intimate     1650\n"}
+,{"stream_name":"stdout","time":12.234382533,"data":"Jackets      1002\n"}
+,{"stream_name":"stdout","time":12.234385849,"data":"Trend         118\n"}
+,{"stream_name":"stdout","time":12.234389208,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":12.234392574,"data":"\n"}
+,{"stream_name":"stdout","time":12.234395806,"data":"Unique categories: 6\n"}
+,{"stream_name":"stdout","time":12.272098009,"data":"Dominant category: 'Tops'\n"}
+,{"stream_name":"stdout","time":12.272125738,"data":"Count: 10,046 (44.4% of dataset)\n"}
+,{"stream_name":"stdout","time":12.272130716,"data":"\n"}
+,{"stream_name":"stdout","time":12.272138384,"data":"Retaining all categories. Cross-domain noise acknowledged as limitation.\n"}
+,{"stream_name":"stdout","time":12.344359157,"data":"Rating distribution BEFORE dropping 3-star:\n"}
+,{"stream_name":"stdout","time":12.344394034,"data":"rating\n"}
+,{"stream_name":"stdout","time":12.344398689,"data":"1      821\n"}
+,{"stream_name":"stdout","time":12.344402202,"data":"2     1548\n"}
+,{"stream_name":"stdout","time":12.344405747,"data":"3     2823\n"}
+,{"stream_name":"stdout","time":12.344409926,"data":"4     4908\n"}
+,{"stream_name":"stdout","time":12.344413715,"data":"5    12534\n"}
+,{"stream_name":"stdout","time":12.344417477,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":12.390618655,"data":"Rating distribution AFTER dropping 3-star:\n"}
+,{"stream_name":"stdout","time":12.390657405,"data":"rating\n"}
+,{"stream_name":"stdout","time":12.390662557,"data":"1      821\n"}
+,{"stream_name":"stdout","time":12.390666049,"data":"2     1548\n"}
+,{"stream_name":"stdout","time":12.390669447,"data":"4     4908\n"}
+,{"stream_name":"stdout","time":12.390673162,"data":"5    12534\n"}
+,{"stream_name":"stdout","time":12.390676819,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":12.390680698,"data":"\n"}
+,{"stream_name":"stdout","time":12.390683848,"data":"Sentiment label distribution:\n"}
+,{"stream_name":"stdout","time":12.390687022,"data":"sentiment\n"}
+,{"stream_name":"stdout","time":12.390690139,"data":"1    17442\n"}
+,{"stream_name":"stdout","time":12.390697097,"data":"0     2369\n"}
+,{"stream_name":"stdout","time":12.390699379,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":12.39070184,"data":"\n"}
+,{"stream_name":"stdout","time":12.390703907,"data":"Positive rate: 88.0%\n"}
+,{"stream_name":"stdout","time":12.390706436,"data":"Remaining rows: 19,811\n"}
+,{"stream_name":"stdout","time":12.533966827,"data":"Character length stats:\n"}
+,{"stream_name":"stdout","time":12.53400103,"data":"count    19811.000000\n"}
+,{"stream_name":"stdout","time":12.534006473,"data":"mean       306.029428\n"}
+,{"stream_name":"stdout","time":12.534010133,"data":"std        144.518541\n"}
+,{"stream_name":"stdout","time":12.534013894,"data":"min          9.000000\n"}
+,{"stream_name":"stdout","time":12.53401744,"data":"25%        183.000000\n"}
+,{"stream_name":"stdout","time":12.534020993,"data":"50%        298.000000\n"}
+,{"stream_name":"stdout","time":12.534024629,"data":"75%        454.000000\n"}
+,{"stream_name":"stdout","time":12.534028493,"data":"90%        500.000000\n"}
+,{"stream_name":"stdout","time":12.534047982,"data":"95%        500.000000\n"}
+,{"stream_name":"stdout","time":12.534052196,"data":"99%        502.000000\n"}
+,{"stream_name":"stdout","time":12.534055895,"data":"max        508.000000\n"}
+,{"stream_name":"stdout","time":12.534059691,"data":"Name: text_length, dtype: float64\n"}
+,{"stream_name":"stdout","time":12.534063338,"data":"\n"}
+,{"stream_name":"stdout","time":12.534067123,"data":"Word count stats:\n"}
+,{"stream_name":"stdout","time":12.534070934,"data":"count    19811.000000\n"}
+,{"stream_name":"stdout","time":12.534074898,"data":"mean        59.626521\n"}
+,{"stream_name":"stdout","time":12.53407846,"data":"std         28.650798\n"}
+,{"stream_name":"stdout","time":12.534082113,"data":"min          2.000000\n"}
+,{"stream_name":"stdout","time":12.534085572,"data":"25%         35.000000\n"}
+,{"stream_name":"stdout","time":12.534089561,"data":"50%         58.000000\n"}
+,{"stream_name":"stdout","time":12.53409348,"data":"75%         88.000000\n"}
+,{"stream_name":"stdout","time":12.534097433,"data":"90%         98.000000\n"}
+,{"stream_name":"stdout","time":12.534101303,"data":"95%        101.000000\n"}
+,{"stream_name":"stdout","time":12.534105467,"data":"99%        106.000000\n"}
+,{"stream_name":"stdout","time":12.534109309,"data":"max        115.000000\n"}
+,{"stream_name":"stdout","time":12.534112898,"data":"Name: word_count, dtype: float64\n"}
+,{"stream_name":"stdout","time":12.576321663,"data":"Removed 53 rows on length filter\n"}
+,{"stream_name":"stdout","time":12.576363167,"data":"99th percentile (upper cut): 502 characters\n"}
+,{"stream_name":"stdout","time":12.576369672,"data":"Remaining: 19,758\n"}
+,{"stream_name":"stdout","time":12.611115128,"data":"\n"}
+,{"stream_name":"stdout","time":12.611140854,"data":"\u003e\u003e\u003e LSTM max_len set to 95th percentile word count: 101\n"}
+,{"stream_name":"stdout","time":12.611144907,"data":"    (Store this — used in Phase 5 LSTM tokenisation)\n"}
+,{"stream_name":"stdout","time":12.914997204,"data":"\n"}
+,{"stream_name":"stdout","time":12.915032207,"data":"Negative reviews: 2,360\n"}
+,{"stream_name":"stdout","time":12.915037801,"data":"Positive reviews: 17,398\n"}
+,{"stream_name":"stdout","time":12.91504133,"data":"Imbalance ratio (pos:neg): 7.4:1\n"}
+,{"stream_name":"stdout","time":12.951396679,"data":"\n"}
+,{"stream_name":"stdout","time":12.951419228,"data":"\u003e\u003e\u003e Class weights computed for LSTM: {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":12.951424196,"data":"    (Store this — passed to model.fit() in Phase 5)\n"}
+,{"stream_name":"stdout","time":13.039830694,"data":"Sample combined texts:\n"}
+,{"stream_name":"stdout","time":13.039866577,"data":"['Absolutely wonderful - silky and sexy and comfortable', 'Love this dress!  it\\'s sooo pretty.  i happened to find it in a store, and i\\'m glad i did bc i never would have ordered it online bc it\\'s petite.  i bought a petite and am 5\\'8\".  i love the length on me- hits just a little below the knee.  would definitely be a true midi on someone who is truly petite.', \"My favorite buy! I love, love, love this jumpsuit. it's fun, flirty, and fabulous! every time i wear it, i get nothing but great compliments!\"]\n"}
+,{"stream_name":"stdout","time":13.039877683,"data":"\n"}
+,{"stream_name":"stdout","time":13.039880757,"data":"Avg combined length: 323 chars\n"}
+,{"stream_name":"stdout","time":13.31212247,"data":"Engineered features sample:\n"}
+,{"stream_name":"stdout","time":13.312162993,"data":"                                                                                         combined_text  \\\n"}
+,{"stream_name":"stdout","time":13.312184219,"data":"0                                                Absolutely wonderful - silky and sexy and comfortable   \n"}
+,{"stream_name":"stdout","time":13.312188687999999,"data":"1  Love this dress!  it's sooo pretty.  i happened to find it in a store, and i'm glad i did bc i n...   \n"}
+,{"stream_name":"stdout","time":13.312192359,"data":"3  My favorite buy! I love, love, love this jumpsuit. it's fun, flirty, and fabulous! every time i ...   \n"}
+,{"stream_name":"stdout","time":13.312200577,"data":"4  Flattering shirt This shirt is very flattering to all due to the adjustable front tie. it is the...   \n"}
+,{"stream_name":"stdout","time":13.312204234,"data":"5  Not for the very petite I love tracy reese dresses, but this one is not for the very petite. i a...   \n"}
+,{"stream_name":"stdout","time":13.312208631,"data":"\n"}
+,{"stream_name":"stdout","time":13.312212217999999,"data":"   exclamation_count  caps_ratio  helpful_votes  word_count  \n"}
+,{"stream_name":"stdout","time":13.312216014,"data":"0                  0    0.018519              0           8  \n"}
+,{"stream_name":"stdout","time":13.31221969,"data":"1                  1    0.003289              4          62  \n"}
+,{"stream_name":"stdout","time":13.312223555,"data":"3                  3    0.014085              0          22  \n"}
+,{"stream_name":"stdout","time":13.312227955000001,"data":"4                  3    0.009524              6          36  \n"}
+,{"stream_name":"stdout","time":13.312231835,"data":"5                  0    0.003899              4          98  \n"}
+,{"stream_name":"stdout","time":13.383335368000001,"data":"══════════════════════════════════════════════════\n"}
+,{"stream_name":"stdout","time":13.383383135,"data":"CLEAN DATASET SUMMARY\n"}
+,{"stream_name":"stdout","time":13.383389273,"data":"══════════════════════════════════════════════════\n"}
+,{"stream_name":"stdout","time":13.383394047,"data":"Total rows:        19,758\n"}
+,{"stream_name":"stdout","time":13.38339769,"data":"Positive reviews:  17,398\n"}
+,{"stream_name":"stdout","time":13.383402005,"data":"Negative reviews:  2,360\n"}
+,{"stream_name":"stdout","time":13.383405242,"data":"Positive rate:     88.1%\n"}
+,{"stream_name":"stdout","time":13.38341499,"data":"Avg word count:    60\n"}
+,{"stream_name":"stdout","time":13.383418762,"data":"\n"}
+,{"stream_name":"stdout","time":13.383423052,"data":"Stored constants for later phases:\n"}
+,{"stream_name":"stdout","time":13.383426535,"data":"  MAX_LEN_LSTM    = 101\n"}
+,{"stream_name":"stdout","time":13.38342999,"data":"  CLASS_WEIGHT    = {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":13.383433205,"data":"══════════════════════════════════════════════════\n"}
+,{"stream_name":"stdout","time":13.383437266,"data":"\n"}
+,{"stream_name":"stdout","time":13.383440494,"data":"Columns available for EDA and modelling:\n"}
+,{"stream_name":"stdout","time":13.383444417,"data":"combined_text         object\n"}
+,{"stream_name":"stdout","time":13.383448199,"data":"sentiment              int64\n"}
+,{"stream_name":"stdout","time":13.38345136,"data":"rating                 int64\n"}
+,{"stream_name":"stdout","time":13.38345467,"data":"word_count             int64\n"}
+,{"stream_name":"stdout","time":13.383457773,"data":"exclamation_count      int64\n"}
+,{"stream_name":"stdout","time":13.383470893,"data":"caps_ratio           float64\n"}
+,{"stream_name":"stdout","time":13.38347461,"data":"helpful_votes          int64\n"}
+,{"stream_name":"stdout","time":13.383477656,"data":"category              object\n"}
+,{"stream_name":"stdout","time":13.383481163999999,"data":"dtype: object\n"}
+,{"stream_name":"stdout","time":13.876184133,"data":"Saved: df_clean.csv\n"}
+,{"stream_name":"stdout","time":14.343083429,"data":"Loaded: 19,758 rows\n"}
+,{"stream_name":"stdout","time":14.343122369,"data":"MAX_LEN_LSTM = 101\n"}
+,{"stream_name":"stdout","time":14.343128227,"data":"CLASS_WEIGHT = {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":14.74983349,"data":"\n"}
+,{"stream_name":"stdout","time":14.749873621,"data":"Negative: 2,360  (11.9%)\n"}
+,{"stream_name":"stdout","time":14.749881978,"data":"Positive: 17,398  (88.1%)\n"}
+,{"stream_name":"stdout","time":14.749894296,"data":"Imbalance ratio: 7.4:1\n"}
+,{"stream_name":"stdout","time":15.765914343,"data":"Word count statistics by sentiment:\n"}
+,{"stream_name":"stdout","time":15.765948428,"data":"             count  mean   std  min   25%   50%   75%   90%    95%    max\n"}
+,{"stream_name":"stdout","time":15.765953583,"data":"sentiment                                                                \n"}
+,{"stream_name":"stdout","time":15.765957392,"data":"0           2360.0  60.7  27.1  3.0  38.0  60.0  86.0  97.0  100.0  111.0\n"}
+,{"stream_name":"stdout","time":15.765961024,"data":"1          17398.0  59.4  28.8  2.0  35.0  58.0  88.0  98.0  101.0  115.0\n"}
+,{"stream_name":"stdout","time":15.76596497,"data":"\n"}
+,{"stream_name":"stdout","time":15.765968218,"data":"Mean word count — Positive: 59 | Negative: 61\n"}
+,{"stream_name":"stdout","time":23.58625267,"data":"Mean feature values by sentiment:\n"}
+,{"stream_name":"stdout","time":23.586295834,"data":"           exclamation_count  caps_ratio  word_count\n"}
+,{"stream_name":"stdout","time":23.586301224,"data":"sentiment                                           \n"}
+,{"stream_name":"stdout","time":23.586305062,"data":"0                     0.4864      0.0072     60.7445\n"}
+,{"stream_name":"stdout","time":23.586308681,"data":"1                     0.9948      0.0077     59.4054\n"}
+,{"stream_name":"stdout","time":24.884176895,"data":"Mean negations — Positive: 1.996 | Negative: 3.097\n"}
+,{"stream_name":"stdout","time":24.88422154,"data":"Reviews containing at least one negation word: 61.9%\n"}
+,{"stream_name":"stdout","time":25.339088337,"data":"Category counts:\n"}
+,{"stream_name":"stdout","time":25.339151275,"data":"category\n"}
+,{"stream_name":"stdout","time":25.339157139,"data":"Tops        8722\n"}
+,{"stream_name":"stdout","time":25.339162136,"data":"Dresses     5294\n"}
+,{"stream_name":"stdout","time":25.33918157,"data":"Bottoms     3249\n"}
+,{"stream_name":"stdout","time":25.339185436,"data":"Intimate    1472\n"}
+,{"stream_name":"stdout","time":25.339189269,"data":"Jackets      909\n"}
+,{"stream_name":"stdout","time":25.339192991,"data":"Trend         99\n"}
+,{"stream_name":"stdout","time":25.33919716,"data":"Name: count, dtype: int64\n"}
+,{"stream_name":"stdout","time":25.339200904,"data":"\n"}
+,{"stream_name":"stdout","time":25.339204548,"data":"Dominant category: 'Tops' (44.1% of data)\n"}
+,{"stream_name":"stdout","time":25.529301723,"data":"EDA DECISION SUMMARY\n"}
+,{"stream_name":"stdout","time":25.529346782,"data":"==========================================================================================\n"}
+,{"stream_name":"stdout","time":25.529366512,"data":"                                        Finding                                             Decision     Affects\n"}
+,{"stream_name":"stdout","time":25.529372549,"data":"                  ~88% positive class imbalance               class_weight='balanced' in both models Both models\n"}
+,{"stream_name":"stdout","time":25.529377335,"data":"                95th pct word count = 101 words                                   LSTM max_len = 101   LSTM only\n"}
+,{"stream_name":"stdout","time":25.52938093,"data":"         Negative reviews are longer on average                   word_count retained as SVM feature    SVM only\n"}
+,{"stream_name":"stdout","time":25.529385042,"data":"             Stopwords dominate raw word clouds              Stopword removal confirmed for SVM only    SVM only\n"}
+,{"stream_name":"stdout","time":25.529389554,"data":"Bigrams capture negation/emphasis unigrams miss               ngram_range=(1,2) confirmed for TF-IDF    SVM only\n"}
+,{"stream_name":"stdout","time":25.529393493,"data":"     Negation words in significant % of reviews   Negation fusion before stopword removal (SVM only)    SVM only\n"}
+,{"stream_name":"stdout","time":25.529397269,"data":" Exclamation count \u0026 caps ratio differ by class exclamation_count + caps_ratio added to SVM features    SVM only\n"}
+,{"stream_name":"stdout","time":25.52940191,"data":"       Binarisation boundary at 3-star is clean                           No label adjustment needed Both models\n"}
+,{"stream_name":"stdout","time":25.529407779,"data":"==========================================================================================\n"}
+,{"stream_name":"stdout","time":25.529413686,"data":"\n"}
+,{"stream_name":"stdout","time":25.529417197,"data":"Stored for Phase 3+:\n"}
+,{"stream_name":"stdout","time":25.529421381,"data":"  MAX_LEN_LSTM     = 101\n"}
+,{"stream_name":"stdout","time":25.52942549,"data":"  CLASS_WEIGHT     = {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stderr","time":35.727344564,"data":"2026-06-01 22:04:11.238974: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.728017765,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":35.728052146,"data":"E0000 00:00:1780351451.426632      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.728058186,"data":"E0000 00:00:1780351451.481188      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.728062764,"data":"W0000 00:00:1780351451.945571      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.728067422,"data":"W0000 00:00:1780351451.945608      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.728071836,"data":"W0000 00:00:1780351451.945611      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.728880649,"data":"W0000 00:00:1780351451.945614      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930012138,"data":"2026-06-01 22:04:11.238974: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930045349,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":35.930049907,"data":"E0000 00:00:1780351451.426632      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930054112,"data":"E0000 00:00:1780351451.481188      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930058007,"data":"W0000 00:00:1780351451.945571      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930062487,"data":"W0000 00:00:1780351451.945608      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930066847,"data":"W0000 00:00:1780351451.945611      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930070699,"data":"W0000 00:00:1780351451.945614      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.93007538,"data":"\n"}
+,{"stream_name":"stderr","time":35.930079237,"data":"2026-06-01 22:04:11.238974: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930083387,"data":"WARNING: All log messages before absl::InitializeLog() is called are written to STDERR\n"}
+,{"stream_name":"stderr","time":35.930087011,"data":"E0000 00:00:1780351451.426632      23 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930090744,"data":"E0000 00:00:1780351451.481188      23 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered\n"}
+,{"stream_name":"stderr","time":35.930095692,"data":"W0000 00:00:1780351451.945571      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930099479,"data":"W0000 00:00:1780351451.945608      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930103264,"data":"W0000 00:00:1780351451.945611      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stderr","time":35.930107012,"data":"W0000 00:00:1780351451.945614      23 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.\n"}
+,{"stream_name":"stdout","time":46.520522808,"data":"Loaded: 19,758 rows\n"}
+,{"stream_name":"stdout","time":46.520607035,"data":"MAX_LEN_LSTM  = 101\n"}
+,{"stream_name":"stdout","time":46.520632789,"data":"CLASS_WEIGHTS = {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":46.656921491,"data":"Train size: 15,806\n"}
+,{"stream_name":"stdout","time":46.656958368,"data":"Test size:  3,952\n"}
+,{"stream_name":"stdout","time":46.656961574,"data":"\n"}
+,{"stream_name":"stdout","time":46.656963792,"data":"Train sentiment split:\n"}
+,{"stream_name":"stdout","time":46.656966032,"data":"sentiment\n"}
+,{"stream_name":"stdout","time":46.656968438,"data":"1    0.881\n"}
+,{"stream_name":"stdout","time":46.656970581,"data":"0    0.119\n"}
+,{"stream_name":"stdout","time":46.656973311,"data":"Name: proportion, dtype: float64\n"}
+,{"stream_name":"stdout","time":46.656990368,"data":"\n"}
+,{"stream_name":"stdout","time":46.656994403,"data":"Test sentiment split:\n"}
+,{"stream_name":"stdout","time":46.656998315,"data":"sentiment\n"}
+,{"stream_name":"stdout","time":46.65700205,"data":"1    0.881\n"}
+,{"stream_name":"stdout","time":46.657005971,"data":"0    0.119\n"}
+,{"stream_name":"stdout","time":46.657009703,"data":"Name: proportion, dtype: float64\n"}
+,{"stream_name":"stdout","time":46.657013071,"data":"\n"}
+,{"stream_name":"stdout","time":46.657016233,"data":"\u003e\u003e\u003e Stratification verified — ratios match between train and test\n"}
+,{"stream_name":"stdout","time":46.923742511,"data":"Sample after lowercase + HTML/URL removal:\n"}
+,{"stream_name":"stdout","time":46.923793204,"data":"great concept, poor execution i really like this dress/shirt. it's great for layering, super cute and will hide my traditional holiday and this year's pregnancy weight gain. i think it will be so cute\n"}
+,{"stream_name":"stdout","time":47.901064563,"data":"Before: this product does not work and i dont recommend it\n"}
+,{"stream_name":"stdout","time":47.901104937,"data":"After:  this product does not_work and i dont recommend it\n"}
+,{"stream_name":"stdout","time":47.901108447,"data":"\n"}
+,{"stream_name":"stdout","time":47.901110747,"data":"Sample from data:\n"}
+,{"stream_name":"stdout","time":47.901113032,"data":"great concept, poor execution i really like this dress/shirt. its great for layering, super cute and will hide my traditional holiday and this years pregnancy weight gain. i think it will be so cute w\n"}
+,{"stream_name":"stdout","time":48.471310688,"data":"After punctuation/number removal:\n"}
+,{"stream_name":"stdout","time":48.471354385,"data":"great concept poor execution i really like this dressshirt its great for layering super cute and will hide my traditional holiday and this years pregnancy weight gain i think it will be so cute with s\n"}
+,{"stream_name":"stdout","time":48.705144348,"data":"Custom stopword list: 195 words\n"}
+,{"stream_name":"stdout","time":48.705183381,"data":"Negation words protected: {'werent', 'dont', 'wont', 'cant', 'hadnt', 'doesnt', 'no', 'neither', 'nor', 'wasnt', 'didnt', 'isnt', 'shouldnt', 'havent', 'hasnt', 'wouldnt', 'never', 'not', 'couldnt', 'arent'}\n"}
+,{"stream_name":"stdout","time":48.705217759,"data":"\n"}
+,{"stream_name":"stdout","time":48.705222207,"data":"After stopword removal:\n"}
+,{"stream_name":"stdout","time":48.705226089,"data":"great concept poor execution really like dressshirt great layering super cute hide traditional holiday years pregnancy weight gain think cute leggings boots unfortunately back panel dress not_seem var\n"}
+,{"stream_name":"stdout","time":49.681569299,"data":"Lemmatising training set...\n"}
+,{"stream_name":"stdout","time":77.00848038,"data":"Lemmatising test set...\n"}
+,{"stream_name":"stdout","time":83.276131059,"data":"Done.\n"}
+,{"stream_name":"stdout","time":83.276192521,"data":"\n"}
+,{"stream_name":"stdout","time":83.276212017,"data":"Final SVM-preprocessed sample:\n"}
+,{"stream_name":"stdout","time":83.276217011,"data":"great concept poor execution really like dressshirt great layer super cute hide traditional holiday year pregnancy weight gain think cute legging boot unfortunately back panel dress not_seem vary base size may sound weird I ve try ability reach forward do not change two size return hopeful order sli\n"}
+,{"stream_name":"stdout","time":83.433335484,"data":"[POSITIVE]\n"}
+,{"stream_name":"stdout","time":83.433369946,"data":"  RAW:   Great jacket I love the colorblock color combo. the colors are neutral enough to go with so many things yet still be unique and stand out. the fit was\n"}
+,{"stream_name":"stdout","time":83.43337538,"data":"  CLEAN: great jacket love colorblock color combo color neutral enough go many thing yet still unique stand fit perfect take normal size medium\n"}
+,{"stream_name":"stdout","time":83.433378235,"data":"\n"}
+,{"stream_name":"stdout","time":83.433380588,"data":"[NEGATIVE]\n"}
+,{"stream_name":"stdout","time":83.433382848,"data":"  RAW:   Great concept, poor execution I really like this dress/shirt. it's great for layering, super cute and will hide my traditional holiday and this year's\n"}
+,{"stream_name":"stdout","time":83.433385682,"data":"  CLEAN: great concept poor execution really like dressshirt great layer super cute hide traditional holiday year pregnancy weight gain think cute legging boot\n"}
+,{"stream_name":"stdout","time":83.433404575,"data":"\n"}
+,{"stream_name":"stdout","time":83.433408614,"data":"Avg tokens before SVM preprocessing: 62\n"}
+,{"stream_name":"stdout","time":83.433412652,"data":"Avg tokens after SVM preprocessing:  32\n"}
+,{"stream_name":"stdout","time":83.433416872,"data":"Vocabulary reduction: 49.4%\n"}
+,{"stream_name":"stdout","time":84.821134488,"data":"TF-IDF train matrix: (15806, 15000)\n"}
+,{"stream_name":"stdout","time":84.821185115,"data":"TF-IDF test matrix:  (3952, 15000)\n"}
+,{"stream_name":"stdout","time":84.821190895,"data":"Actual vocabulary size: 15,000\n"}
+,{"stream_name":"stdout","time":84.821194816,"data":"Sparsity: 99.73%\n"}
+,{"stream_name":"stdout","time":84.82119816,"data":"\n"}
+,{"stream_name":"stdout","time":84.821201812,"data":"Top 20 features by mean TF-IDF weight:\n"}
+,{"stream_name":"stdout","time":84.821205566,"data":"  dress                     0.0287\n"}
+,{"stream_name":"stdout","time":84.821209368,"data":"  love                      0.0279\n"}
+,{"stream_name":"stdout","time":84.821213248,"data":"  fit                       0.0248\n"}
+,{"stream_name":"stdout","time":84.821217275,"data":"  wear                      0.0232\n"}
+,{"stream_name":"stdout","time":84.821220773,"data":"  great                     0.0227\n"}
+,{"stream_name":"stdout","time":84.821225368,"data":"  size                      0.0227\n"}
+,{"stream_name":"stdout","time":84.821228958,"data":"  top                       0.0225\n"}
+,{"stream_name":"stdout","time":84.821232543,"data":"  look                      0.0213\n"}
+,{"stream_name":"stdout","time":84.82123648,"data":"  color                     0.0200\n"}
+,{"stream_name":"stdout","time":84.821240293,"data":"  not                       0.0197\n"}
+,{"stream_name":"stdout","time":84.821243629,"data":"  like                      0.0184\n"}
+,{"stream_name":"stdout","time":84.821246915,"data":"  perfect                   0.0160\n"}
+,{"stream_name":"stdout","time":84.821250273,"data":"  cute                      0.0159\n"}
+,{"stream_name":"stdout","time":84.821253641,"data":"  small                     0.0154\n"}
+,{"stream_name":"stdout","time":84.821280755,"data":"  beautiful                 0.0152\n"}
+,{"stream_name":"stdout","time":84.821283597,"data":"  get                       0.0149\n"}
+,{"stream_name":"stdout","time":84.821286262,"data":"  well                      0.0148\n"}
+,{"stream_name":"stdout","time":84.82128836,"data":"  fabric                    0.0147\n"}
+,{"stream_name":"stdout","time":84.82129044,"data":"  order                     0.0146\n"}
+,{"stream_name":"stdout","time":84.821292609,"data":"  would                     0.0143\n"}
+,{"stream_name":"stdout","time":84.902648386,"data":"Final SVM train matrix: (15806, 15004)\n"}
+,{"stream_name":"stdout","time":84.902682766,"data":"Final SVM test matrix:  (3952, 15004)\n"}
+,{"stream_name":"stdout","time":84.9026865,"data":"(TF-IDF features: 15,000 + engineered features: 4)\n"}
+,{"stream_name":"stdout","time":84.902689175,"data":"\n"}
+,{"stream_name":"stdout","time":84.902691577,"data":"\u003e\u003e\u003e SVM pipeline complete. Ready for Phase 4 modelling.\n"}
+,{"stream_name":"stdout","time":85.512444206,"data":"SAME REVIEW — TWO PIPELINES:\n"}
+,{"stream_name":"stdout","time":85.512488583,"data":"\n"}
+,{"stream_name":"stdout","time":85.512493786,"data":"  Raw:  Great concept, poor execution I really like this dress/shirt. it's great for layering, super cute and will hide my traditional holiday and this year's pregnancy weight gain. i think it will be so cute\n"}
+,{"stream_name":"stdout","time":85.512498661,"data":"\n"}
+,{"stream_name":"stdout","time":85.51250295,"data":"  SVM:  great concept poor execution really like dressshirt great layer super cute hide traditional holiday year pregnancy weight gain think cute legging boot unfortunately back panel dress not_seem vary base\n"}
+,{"stream_name":"stdout","time":85.51250781,"data":"\n"}
+,{"stream_name":"stdout","time":85.512510823,"data":"  LSTM: great concept, poor execution i really like this dress/shirt. it's great for layering, super cute and will hide my traditional holiday and this year's pregnancy weight gain. i think it will be so cute\n"}
+,{"stream_name":"stdout","time":86.246507341,"data":"Full vocabulary size: 13,050\n"}
+,{"stream_name":"stdout","time":86.246547786,"data":"Capped vocabulary:    13,000 (MAX_VOCAB=13000)\n"}
+,{"stream_name":"stdout","time":86.246553066,"data":"Words mapped to OOV:  50 (0.4% of full vocab — these are rare words)\n"}
+,{"stream_name":"stdout","time":86.246558066,"data":"\n"}
+,{"stream_name":"stdout","time":86.246561854,"data":"Sample text:     great concept, poor execution i really like this dress/shirt. it's great for layering, super cute an\n"}
+,{"stream_name":"stdout","time":86.246583623,"data":"Sample sequence: [25, 1667, 764, 2253, 3, 58, 31, 8, 17, 72, 34, 25, 13, 596, 105, 50, 4, 63, 924, 18] ...\n"}
+,{"stream_name":"stdout","time":86.853963996,"data":"LSTM train sequences: (15806, 101)\n"}
+,{"stream_name":"stdout","time":86.854003445,"data":"LSTM test sequences:  (3952, 101)\n"}
+,{"stream_name":"stdout","time":86.8540069,"data":"(rows=reviews, cols=tokens padded to MAX_LEN_LSTM=101)\n"}
+,{"stream_name":"stdout","time":86.854009373,"data":"\n"}
+,{"stream_name":"stdout","time":86.854011537,"data":"Sample padded sequence (first 30 positions):\n"}
+,{"stream_name":"stdout","time":86.85401395,"data":"[  25 1667  764 2253    3   58   31    8   17   72   34   25   13  596\n"}
+,{"stream_name":"stdout","time":86.854016244,"data":"  105   50    4   63  924   18 1566  930    4    8 2714 1597  225 2614\n"}
+,{"stream_name":"stdout","time":86.854019412,"data":"    3  103]\n"}
+,{"stream_name":"stdout","time":86.854040661,"data":"Trailing zeros (padding): 1 / 101 positions\n"}
+,{"stream_name":"stdout","time":87.192427717,"data":"Sequences truncated (\u003e 105): 43/1000 (4.3%)\n"}
+,{"stream_name":"stdout","time":87.192491534,"data":"Sequences padded   (\u003c 105): 942/1000 (94.2%)\n"}
+,{"stream_name":"stdout","time":87.192497967,"data":"\n"}
+,{"stream_name":"stdout","time":87.192502172,"data":"Conclusion: 105 is appropriate as max_len — less than 10% of sequences are truncated.\n"}
+,{"stream_name":"stdout","time":87.315212822,"data":"Label shape checks:\n"}
+,{"stream_name":"stdout","time":87.315258157,"data":"  y_train:          (15806,)\n"}
+,{"stream_name":"stdout","time":87.315276539,"data":"  X_train SVM:      15806\n"}
+,{"stream_name":"stdout","time":87.315280493,"data":"  X_train LSTM:     15806\n"}
+,{"stream_name":"stdout","time":87.315288612,"data":"\n"}
+,{"stream_name":"stdout","time":87.315291391,"data":"  y_test:           (3952,)\n"}
+,{"stream_name":"stdout","time":87.315293788,"data":"  X_test SVM:       3952\n"}
+,{"stream_name":"stdout","time":87.315295908,"data":"  X_test LSTM:      3952\n"}
+,{"stream_name":"stdout","time":87.315298063,"data":"\n"}
+,{"stream_name":"stdout","time":87.315300229,"data":"\u003e\u003e\u003e All alignment checks passed\n"}
+,{"stream_name":"stdout","time":87.315302636,"data":"\n"}
+,{"stream_name":"stdout","time":87.315304727,"data":"Class distribution in train labels:\n"}
+,{"stream_name":"stdout","time":87.315306913,"data":"  Class 0: 1,888 (11.9%)\n"}
+,{"stream_name":"stdout","time":87.315309056,"data":"  Class 1: 13,918 (88.1%)\n"}
+,{"stream_name":"stdout","time":88.193441094,"data":"Saved:\n"}
+,{"stream_name":"stdout","time":88.193476229,"data":"  X_train_svm.npz  / X_test_svm.npz\n"}
+,{"stream_name":"stdout","time":88.193482537,"data":"  X_train_lstm.npy / X_test_lstm.npy\n"}
+,{"stream_name":"stdout","time":88.193486778,"data":"  y_train.npy      / y_test.npy\n"}
+,{"stream_name":"stdout","time":88.193491094,"data":"  tokenizer.pkl\n"}
+,{"stream_name":"stdout","time":88.193494605,"data":"  tfidf.pkl\n"}
+,{"stream_name":"stdout","time":88.193498108,"data":"  scaler.pkl\n"}
+,{"stream_name":"stdout","time":88.26302592,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":88.263059554,"data":"PREPROCESSING SUMMARY\n"}
+,{"stream_name":"stdout","time":88.263064834,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":88.263068669,"data":"\n"}
+,{"stream_name":"stdout","time":88.263072059,"data":"SVM Pipeline:\n"}
+,{"stream_name":"stdout","time":88.263076151,"data":"  Steps:     lowercase → HTML/URL → negation → punctuation → stopwords → lemmatise → TF-IDF → stack\n"}
+,{"stream_name":"stdout","time":88.263081001,"data":"  Input:     15,806 raw text strings\n"}
+,{"stream_name":"stdout","time":88.263084603,"data":"  Output:    (15806, 15004) sparse matrix\n"}
+,{"stream_name":"stdout","time":88.263088045,"data":"  Features:  15,000 TF-IDF + 4 engineered\n"}
+,{"stream_name":"stdout","time":88.263091775,"data":"\n"}
+,{"stream_name":"stdout","time":88.263095088,"data":"LSTM Pipeline:\n"}
+,{"stream_name":"stdout","time":88.263098362,"data":"  Steps:     lowercase → HTML/URL → tokenise → pad\n"}
+,{"stream_name":"stdout","time":88.263102093,"data":"  Input:     15,806 raw text strings\n"}
+,{"stream_name":"stdout","time":88.263120066,"data":"  Output:    (15806, 101) integer array\n"}
+,{"stream_name":"stdout","time":88.263124255,"data":"  Vocab:     13,000 tokens\n"}
+,{"stream_name":"stdout","time":88.263128212,"data":"  max_len:   105 (95th pct from EDA)\n"}
+,{"stream_name":"stdout","time":88.263143721,"data":"\n"}
+,{"stream_name":"stdout","time":88.263147625,"data":"Labels:\n"}
+,{"stream_name":"stdout","time":88.263151339,"data":"  Train:     15,806 (88.1% positive)\n"}
+,{"stream_name":"stdout","time":88.263154299,"data":"  Test:      3,952 (88.1% positive)\n"}
+,{"stream_name":"stdout","time":88.263157628,"data":"  Weights:   {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":88.263161619,"data":"\n"}
+,{"stream_name":"stdout","time":88.263164916,"data":"Stored constants for Phase 4 \u0026 5:\n"}
+,{"stream_name":"stdout","time":88.263168219,"data":"  MAX_LEN_LSTM     = 105\n"}
+,{"stream_name":"stdout","time":88.263171516,"data":"  MAX_VOCAB        = 13000\n"}
+,{"stream_name":"stdout","time":88.263175233,"data":"  vocab_size       = 13000\n"}
+,{"stream_name":"stdout","time":88.263179068,"data":"  CLASS_WEIGHT_DICT= {0: np.float64(4.186), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":88.26318235,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":88.263185683,"data":"\n"}
+,{"stream_name":"stdout","time":88.263188697,"data":"\u003e\u003e\u003e Phase 3 complete. Ready for Phase 4: SVM Modelling.\n"}
+,{"stream_name":"stdout","time":88.492979343,"data":"X_train: (15806, 15004)\n"}
+,{"stream_name":"stdout","time":88.493020109,"data":"X_test:  (3952, 15004)\n"}
+,{"stream_name":"stdout","time":88.493027146,"data":"y_train: (15806,)  (88.1% positive)\n"}
+,{"stream_name":"stdout","time":88.493032217,"data":"y_test:  (3952,)   (88.1% positive)\n"}
+,{"stream_name":"stdout","time":88.493036332,"data":"\n"}
+,{"stream_name":"stdout","time":88.49304014,"data":"Class weights: {0: np.float64(4.1859), 1: np.float64(0.5678)}\n"}
+,{"stream_name":"stdout","time":93.692864816,"data":"Baseline SVM (C=1.0, default):\n"}
+,{"stream_name":"stdout","time":93.692923308,"data":"  Weighted F1:  0.9511\n"}
+,{"stream_name":"stdout","time":93.692928866,"data":"  ROC-AUC:      0.9751\n"}
+,{"stream_name":"stdout","time":93.692933495,"data":"\n"}
+,{"stream_name":"stdout","time":93.692937278,"data":"              precision    recall  f1-score   support\n"}
+,{"stream_name":"stdout","time":93.692941311,"data":"\n"}
+,{"stream_name":"stdout","time":93.692945028,"data":"    Negative       0.84      0.74      0.79       472\n"}
+,{"stream_name":"stdout","time":93.692949168,"data":"    Positive       0.97      0.98      0.97      3480\n"}
+,{"stream_name":"stdout","time":93.692953024,"data":"\n"}
+,{"stream_name":"stdout","time":93.692956889,"data":"    accuracy                           0.95      3952\n"}
+,{"stream_name":"stdout","time":93.69296082,"data":"   macro avg       0.90      0.86      0.88      3952\n"}
+,{"stream_name":"stdout","time":93.692964699,"data":"weighted avg       0.95      0.95      0.95      3952\n"}
+,{"stream_name":"stdout","time":93.69296849,"data":"\n"}
+,{"stream_name":"stdout","time":93.878660165,"data":"Running GridSearchCV — 25 fits (5 C values × 5 folds)...\n"}
+,{"stream_name":"stdout","time":93.878708775,"data":"Fitting 5 folds for each of 5 candidates, totalling 25 fits\n"}
+,{"stream_name":"stderr","time":102.387913721,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":102.387954697,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":102.593358323,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":102.593436138,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":102.593442788,"data":"\n"}
+,{"stream_name":"stderr","time":102.593446302,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":102.593450174,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":103.291106867,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":103.291148942,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":103.494127745,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":103.49417421,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":103.494180135,"data":"\n"}
+,{"stream_name":"stderr","time":103.494184069,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":103.4941885,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.438195829,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.438233183,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.610845129,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.610878705,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.643844391,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.643913611,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.643919362,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.643923287,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.643926697,"data":"\n"}
+,{"stream_name":"stderr","time":105.643929883,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.643933613,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":105.643936862,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":105.643940701,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":106.513390826,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":106.513429322,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":106.716516247,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":106.716554173,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":106.71661257,"data":"\n"}
+,{"stream_name":"stderr","time":106.716621059,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":106.716625539,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.118655971,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.118739936,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.309966566,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.310038447,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.321974506,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.322011134,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.322015578,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.322019659,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.322023043,"data":"\n"}
+,{"stream_name":"stderr","time":108.322026366,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.322030254,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.322033502,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.322037229,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":108.914882229,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":108.91495797,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.119433765,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.119474095,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.119478583,"data":"\n"}
+,{"stream_name":"stderr","time":109.119481935,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.11948569,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.62617658,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.626215225,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.669910936,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.669944284,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.829246046,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.829313308,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.829318142,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.829321885,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.829325122,"data":"\n"}
+,{"stream_name":"stderr","time":109.829328192,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.829331682,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":109.829334929,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":109.829338532,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":110.456247348,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":110.456321668,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":110.660237953,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":110.660273449,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":110.660277792,"data":"\n"}
+,{"stream_name":"stderr","time":110.660281306,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":110.660285133,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.168447571,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.168492842,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.31906922,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.319108568,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.372338414,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.372382335,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.372388127,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.372393104,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.372396487,"data":"\n"}
+,{"stream_name":"stderr","time":111.372399927,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.372404568,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":111.372408358,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":111.372411865,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":112.078030452,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":112.078113496,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":112.283515399,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":112.283585571,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":112.283595781,"data":"\n"}
+,{"stream_name":"stderr","time":112.283600314,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":112.283605027,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":112.870267843,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":112.870304354,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":112.88065391,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":112.880679199,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.0728256,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.072870213,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.072874924,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.072878671,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.0728819,"data":"\n"}
+,{"stream_name":"stderr","time":113.072885169,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.072888795,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.072892,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.072895832,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.741111148,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.741267935,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.793280759,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.793306282,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.944890602,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.944923617,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.944946185,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.944950197,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.944969439,"data":"\n"}
+,{"stream_name":"stderr","time":113.944972883,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.944976441,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":113.944979608,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":113.944983283,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.399978746,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.400030163,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.455992938,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.456031467,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.605349818,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.60539557,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.605402265,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.605407352,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.605411618,"data":"\n"}
+,{"stream_name":"stderr","time":114.605415961,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.605420804,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":114.605425163,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":114.605430152,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.25040277,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.25044526,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.31449282,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.314542937,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.453196101,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.453242401,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.453248263,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.453253087,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.453257733,"data":"\n"}
+,{"stream_name":"stderr","time":115.456721987,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.456766678,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.456771405,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.456775163,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":115.960941178,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":115.96098568,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.068631589,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.068668562,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.163681829,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.163718379,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.163722854,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.163726639,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.163729997,"data":"\n"}
+,{"stream_name":"stderr","time":116.164088455,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.16410136,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.164105112,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.164109278,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.751549307,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.751607123,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.899082687,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.899120999,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.95748883,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.957526191,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.957531158,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.9575359,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.957539614,"data":"\n"}
+,{"stream_name":"stderr","time":116.959768326,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.959792505,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":116.959796755,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":116.962617901,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.517904353,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.517953002,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.618902618,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.618947221,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.720539455,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.720601998,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.720610795,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.720614959,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.720618303,"data":"\n"}
+,{"stream_name":"stderr","time":117.722682025,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.722701477,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":117.722706013,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":117.722710269,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.314019785,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.314060317,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.497416875,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.49747799,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.519757726,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.519795474,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.519800559,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.519804572,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.519808435,"data":"\n"}
+,{"stream_name":"stderr","time":118.519811892,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.519815807,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":118.519819163,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":118.519823135,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.003932283,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.003995837,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.206262698,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.206305914,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.206311211,"data":"\n"}
+,{"stream_name":"stderr","time":119.20631545,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.206319793,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.211709902,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.211736224,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.414431651,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.414470119,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.414474474,"data":"\n"}
+,{"stream_name":"stderr","time":119.414909833,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.414930103,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.764919269,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.76495248,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.824246205,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.824341859,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.968016234,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.968051888,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.968056585,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.968060386,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.968063598,"data":"\n"}
+,{"stream_name":"stderr","time":119.968437639,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.968486611,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":119.968491286,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":119.968495165,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.467337527,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.467400512,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.669747705,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.669797609,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.669802961,"data":"\n"}
+,{"stream_name":"stderr","time":120.669806764,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.669810584,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.731016979,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.731038941,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.933399668,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.933433606,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":120.933438847,"data":"\n"}
+,{"stream_name":"stderr","time":120.933442201,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":120.933446038,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":121.029581049,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":121.029621348,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":121.231841531,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":121.231876719,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":121.231881684,"data":"\n"}
+,{"stream_name":"stderr","time":121.2318851,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":121.231889157,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":126.218658116,"data":"\n"}
+,{"stream_name":"stdout","time":126.218697381,"data":"Best C:          {'estimator__C': 1.0}\n"}
+,{"stream_name":"stdout","time":126.218701513,"data":"Best CV F1:      0.9457\n"}
+,{"stream_name":"stdout","time":126.719749326,"data":"\n"}
+,{"stream_name":"stdout","time":126.719791828,"data":"Full CV results:\n"}
+,{"stream_name":"stdout","time":126.719801255,"data":"  C=0.01      val_F1=0.9257 ± 0.0024  train_F1=0.9376\n"}
+,{"stream_name":"stdout","time":126.719805059,"data":"  C=0.1       val_F1=0.9437 ± 0.0037  train_F1=0.9743\n"}
+,{"stream_name":"stdout","time":126.719807653,"data":"  C=1.0       val_F1=0.9457 ± 0.0057  train_F1=0.9965 ← BEST\n"}
+,{"stream_name":"stdout","time":126.71981002,"data":"  C=10.0      val_F1=0.9445 ± 0.0054  train_F1=1.0000\n"}
+,{"stream_name":"stdout","time":126.719812204,"data":"  C=100.0     val_F1=0.9443 ± 0.0053  train_F1=1.0000\n"}
+,{"stream_name":"stdout","time":126.850108427,"data":"Best model: LinearSVC(C=1.0, class_weight='balanced', max_iter=2000)\n"}
+,{"stream_name":"stdout","time":126.850143945,"data":"Wrapped in: CalibratedClassifierCV(cv=3)\n"}
+,{"stream_name":"stdout","time":126.850160175,"data":"\n"}
+,{"stream_name":"stdout","time":126.850164423,"data":"Best CV weighted F1: 0.9457\n"}
+,{"stream_name":"stdout","time":126.850168102,"data":"Baseline weighted F1: 0.9511\n"}
+,{"stream_name":"stdout","time":126.850171377,"data":"Improvement from tuning: -0.54pp\n"}
+,{"stream_name":"stdout","time":126.999787202,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":126.99982176,"data":"SVM EVALUATION — TEST SET\n"}
+,{"stream_name":"stdout","time":126.999828913,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":126.999832797,"data":"              precision    recall  f1-score   support\n"}
+,{"stream_name":"stdout","time":126.999836375,"data":"\n"}
+,{"stream_name":"stdout","time":126.999839897,"data":"Negative (0)     0.8430    0.7394    0.7878       472\n"}
+,{"stream_name":"stdout","time":126.999843334,"data":"Positive (1)     0.9652    0.9813    0.9732      3480\n"}
+,{"stream_name":"stdout","time":126.999846655,"data":"\n"}
+,{"stream_name":"stdout","time":126.999859992,"data":"    accuracy                         0.9524      3952\n"}
+,{"stream_name":"stdout","time":126.999863347,"data":"   macro avg     0.9041    0.8604    0.8805      3952\n"}
+,{"stream_name":"stdout","time":126.999866701,"data":"weighted avg     0.9506    0.9524    0.9511      3952\n"}
+,{"stream_name":"stdout","time":126.999870123,"data":"\n"}
+,{"stream_name":"stdout","time":126.99987328,"data":"ROC-AUC Score:       0.9751\n"}
+,{"stream_name":"stdout","time":126.999876703,"data":"Avg Precision (PR):  0.9963\n"}
+,{"stream_name":"stdout","time":126.99988001,"data":"Weighted F1:         0.9511\n"}
+,{"stream_name":"stdout","time":126.999883426,"data":"Macro F1:            0.8805\n"}
+,{"stream_name":"stdout","time":127.408301408,"data":"True  Negatives (TN): 349  — correctly caught negative reviews\n"}
+,{"stream_name":"stdout","time":127.408341322,"data":"False Positives (FP): 123  — negative reviews missed as positive\n"}
+,{"stream_name":"stdout","time":127.408346438,"data":"False Negatives (FN): 65  — positive reviews wrongly flagged\n"}
+,{"stream_name":"stdout","time":127.408350321,"data":"True  Positives (TP): 3,415  — correctly caught positive reviews\n"}
+,{"stream_name":"stdout","time":127.408354304,"data":"\n"}
+,{"stream_name":"stdout","time":127.408357481,"data":"Negative recall (sensitivity): 73.94%  — of all negative reviews, we caught this many\n"}
+,{"stream_name":"stdout","time":127.408361005,"data":"Positive recall:               98.13%\n"}
+,{"stream_name":"stdout","time":127.82162771,"data":"ROC-AUC:          0.9751\n"}
+,{"stream_name":"stdout","time":127.821673784,"data":"Average Precision: 0.9963\n"}
+,{"stream_name":"stdout","time":127.82167753,"data":"\n"}
+,{"stream_name":"stdout","time":127.821679828,"data":"ROC-AUC interpretation:\n"}
+,{"stream_name":"stdout","time":127.821682312,"data":"  \u003e 0.90 — Excellent discrimination between classes\n"}
+,{"stream_name":"stderr","time":129.174925565,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":129.174971587,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":129.383348039,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":129.383394323,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":129.383399368,"data":"\n"}
+,{"stream_name":"stderr","time":129.384719398,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":129.384746248,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":129.857849947,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":129.857902113,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":130.060785951,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":130.060832384,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":130.060837402,"data":"\n"}
+,{"stream_name":"stderr","time":130.062734362,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":130.062765444,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":130.332417475,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":130.332450674,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":130.534922246,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":130.534987422,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":130.534993252,"data":"\n"}
+,{"stream_name":"stderr","time":130.534997147,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":130.535001529,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":132.706225861,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":132.706282039,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":132.911186243,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":132.911223281,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":132.91122811,"data":"\n"}
+,{"stream_name":"stderr","time":132.911231966,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":132.911236188,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":134.186339107,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":134.186378966,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":134.39114297,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":134.391179996,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":134.391184712,"data":"\n"}
+,{"stream_name":"stderr","time":134.391188234,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":134.39120968,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":135.429242342,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":135.429291846,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":135.634909822,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":135.634952022,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":135.634956478,"data":"\n"}
+,{"stream_name":"stderr","time":135.634959909,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":135.634963662,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":136.367385016,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":136.367417002,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":136.569880367,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":136.569938458,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":136.569944084,"data":"\n"}
+,{"stream_name":"stderr","time":136.569947519,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":136.56995134,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":136.991359237,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":136.991396446,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.099651216,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.099684736,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.193769583,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.193802131,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.19380628,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.193810055,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.193813701,"data":"\n"}
+,{"stream_name":"stderr","time":137.193816976,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.193820714,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.193824073,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.193828168,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.607746133,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.610657538,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.810299596,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.810344396,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":137.810350192,"data":"\n"}
+,{"stream_name":"stderr","time":137.810353919,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":137.810357839,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":138.481558787,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":138.481613709,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":138.690114401,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":138.690176919,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":138.690183081,"data":"\n"}
+,{"stream_name":"stderr","time":138.690187607,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":138.690191948,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":138.88394835,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":138.883984233,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":139.088202448,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":139.088267935,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":139.08827362,"data":"\n"}
+,{"stream_name":"stderr","time":139.088277213,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":139.088297937,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.099792097,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.099838142,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.201390776,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.201422628,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.302516472,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.302547377,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.302551604,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.302582969,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.302590534,"data":"\n"}
+,{"stream_name":"stderr","time":143.302593921,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.302597448,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":143.302600605,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":143.30260421,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.638063749,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.638134162,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.650084759,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.65011311,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.842426855,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.842496158,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.842502077,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.842506007,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.842509181,"data":"\n"}
+,{"stream_name":"stderr","time":144.842512366,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.842516082,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":144.842519305,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":144.842522922,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.169835098,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.169911092,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.176712713,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.176743402,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.372380546,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.372413158,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.372419123,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.372425256,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.372430071,"data":"\n"}
+,{"stream_name":"stderr","time":146.372450163,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.37245448,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.372458221,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.372462468,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.690217593,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.69027211,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.897172501,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.897220166,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":146.897225951,"data":"\n"}
+,{"stream_name":"stderr","time":146.899710325,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":146.899732329,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":147.400611317,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":147.400649114,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":147.604625106,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":147.604702292,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":147.604708721,"data":"\n"}
+,{"stream_name":"stderr","time":147.604712684,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":147.604717073,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.508591846,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.508648733,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.561118664,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.561158855,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.711445886,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.711504649,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.711510325,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.711514793,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.711518158,"data":"\n"}
+,{"stream_name":"stderr","time":149.713764095,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.713808797,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":149.713813437,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":149.713817179,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":150.283953802,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":150.284013908,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":150.488810811,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":150.488870246,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":150.48887584,"data":"\n"}
+,{"stream_name":"stderr","time":150.488879388,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":150.488883214,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":151.158106265,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":151.15813851,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":151.356409065,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":151.356447851,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":151.356452935,"data":"\n"}
+,{"stream_name":"stderr","time":151.356456693,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":151.356460647,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":151.931244726,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":151.931295835,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":152.136006975,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":152.136051406,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":152.136057514,"data":"\n"}
+,{"stream_name":"stderr","time":152.136062285,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":152.136067598,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":152.479702384,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":152.479740843,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":152.681151253,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":152.681223446,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":152.681230876,"data":"\n"}
+,{"stream_name":"stderr","time":152.681253267,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":152.681257365,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.367495254,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.367534207,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.502715193,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.502747145,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.571249666,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.571281321,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.571285445,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.571289171,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.571292461,"data":"\n"}
+,{"stream_name":"stderr","time":153.573720709,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.573739419,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":153.573744521,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":153.573749173,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":154.348459973,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":154.348512697,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":154.555214129,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":154.555389894,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":154.555398943,"data":"\n"}
+,{"stream_name":"stderr","time":154.555546449,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":154.555557153,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":155.933821598,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":155.933928926,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.134919564,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.134957753,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.134962386,"data":"\n"}
+,{"stream_name":"stderr","time":156.134965825,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.134986558,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.587746051,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.587782334,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.790309458,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.790379577,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.790385324,"data":"\n"}
+,{"stream_name":"stderr","time":156.790388833,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.79039257,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":156.865264637,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":156.865300883,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.069848906,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.0699211,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.069928957,"data":"\n"}
+,{"stream_name":"stderr","time":157.069933404,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.069938317,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.527508881,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.527580529,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.627093113,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.627138575,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.730085525,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.730129724,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.730136244,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.730142327,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.730146825,"data":"\n"}
+,{"stream_name":"stderr","time":157.730151147,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.730156027,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.730160339,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.730165237,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":157.934816823,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":157.934863238,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.08350124,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.08353622,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.259806664,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.259834525,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.259838466,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.259860658,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.259864788,"data":"\n"}
+,{"stream_name":"stderr","time":158.2598687,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.259872846,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.259876491,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.259880189,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.684005095,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.684068329,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.886462191,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.886501086,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":158.886505468,"data":"\n"}
+,{"stream_name":"stderr","time":158.886508794,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":158.886512444,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":159.484185597,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":159.484220885,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":159.689299727,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":159.689397573,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":159.689404917,"data":"\n"}
+,{"stream_name":"stderr","time":159.689508602,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":159.689517921,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":159.91013255,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":159.910188959,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.114877271,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.114913779,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.114918997,"data":"\n"}
+,{"stream_name":"stderr","time":160.114923069,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.114927013,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.287499094,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.287531955,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.490170934,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.490223401,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.490228448,"data":"\n"}
+,{"stream_name":"stderr","time":160.490232154,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.490236388,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":160.980097396,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":160.980147671,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":161.134151124,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":161.134187117,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":161.183710498,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":161.183745632,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":161.183751262,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":161.183756216,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":161.183760247,"data":"\n"}
+,{"stream_name":"stderr","time":161.183764368,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":161.18376894,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":161.183772694,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":161.183777496,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":162.433979575,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":162.434026625,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":162.636858697,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":162.636925443,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":162.63693014,"data":"\n"}
+,{"stream_name":"stderr","time":162.63728128,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":162.637294564,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":163.023983541,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":163.024020921,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":163.226691576,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":163.226761077,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":163.226767229,"data":"\n"}
+,{"stream_name":"stderr","time":163.227168058,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":163.227181591,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":164.373026189,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":164.373063176,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":164.576165037,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":164.57620439,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":164.57620913,"data":"\n"}
+,{"stream_name":"stderr","time":164.576212417,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":164.576216233,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":165.469223877,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":165.469407466,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":165.676848329,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":165.676915015,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":165.676921357,"data":"\n"}
+,{"stream_name":"stderr","time":165.676925272,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":165.676929978,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":165.819871423,"data":"Final train F1:      0.9965\n"}
+,{"stream_name":"stdout","time":165.819906801,"data":"Final val F1:        0.9457\n"}
+,{"stream_name":"stdout","time":165.819911693,"data":"Train-val gap:       0.0507\n"}
+,{"stream_name":"stdout","time":165.819915767,"data":"\n"}
+,{"stream_name":"stdout","time":165.81991951,"data":"Small gap, both curves high → Healthy generalisation.\n"}
+,{"stream_name":"stdout","time":165.81993967,"data":"More data may marginally improve validation performance.\n"}
+,{"stream_name":"stdout","time":166.870559216,"data":"MANUAL PREDICTION CHECK\n"}
+,{"stream_name":"stdout","time":166.870605976,"data":"======================================================================\n"}
+,{"stream_name":"stdout","time":167.437215754,"data":"\n"}
+,{"stream_name":"stdout","time":167.437255095,"data":"[Clear positive]\n"}
+,{"stream_name":"stdout","time":167.43725961,"data":"  Review:     \"This product is absolutely amazing! Works perfectly.\"\n"}
+,{"stream_name":"stdout","time":167.437263511,"data":"  Prediction: POSITIVE (confidence: 98.0%)\n"}
+,{"stream_name":"stdout","time":167.437267336,"data":"  P(positive)=98.0%  P(negative)=2.0%\n"}
+,{"stream_name":"stdout","time":167.977771193,"data":"\n"}
+,{"stream_name":"stdout","time":167.977822051,"data":"[Clear negative]\n"}
+,{"stream_name":"stdout","time":167.977828487,"data":"  Review:     \"Complete waste of money. Broke after two days.\"\n"}
+,{"stream_name":"stdout","time":167.977833731,"data":"  Prediction: NEGATIVE (confidence: 86.8%)\n"}
+,{"stream_name":"stdout","time":167.977838708,"data":"  P(positive)=13.2%  P(negative)=86.8%\n"}
+,{"stream_name":"stdout","time":168.537677098,"data":"\n"}
+,{"stream_name":"stdout","time":168.537718899,"data":"[Negation test]\n"}
+,{"stream_name":"stdout","time":168.537725239,"data":"  Review:     \"This is not good at all. Does not work as expected.\"\n"}
+,{"stream_name":"stdout","time":168.537729944,"data":"  Prediction: NEGATIVE (confidence: 83.7%)\n"}
+,{"stream_name":"stdout","time":168.537734659,"data":"  P(positive)=16.3%  P(negative)=83.7%\n"}
+,{"stream_name":"stdout","time":169.089533292,"data":"\n"}
+,{"stream_name":"stdout","time":169.089591475,"data":"[Mixed sentiment]\n"}
+,{"stream_name":"stdout","time":169.089600828,"data":"  Review:     \"Great camera but the battery life is really disappointing.\"\n"}
+,{"stream_name":"stdout","time":169.089606641,"data":"  Prediction: NEGATIVE (confidence: 66.8%)\n"}
+,{"stream_name":"stdout","time":169.089612423,"data":"  P(positive)=33.2%  P(negative)=66.8%\n"}
+,{"stream_name":"stdout","time":169.445331658,"data":"\n"}
+,{"stream_name":"stdout","time":169.445370108,"data":"[Short ambiguous]\n"}
+,{"stream_name":"stdout","time":169.445376548,"data":"  Review:     \"It's okay I guess.\"\n"}
+,{"stream_name":"stdout","time":169.44538149,"data":"  Prediction: POSITIVE (confidence: 73.3%)\n"}
+,{"stream_name":"stdout","time":169.445386665,"data":"  P(positive)=73.3%  P(negative)=26.7%\n"}
+,{"stream_name":"stdout","time":169.445391268,"data":"======================================================================\n"}
+,{"stream_name":"stderr","time":171.812852018,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":171.812896728,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":171.819480017,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":171.819507032,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":171.827493607,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":171.827540223,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018346896,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018427728,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018433999,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018438006,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018441369,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018445122,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018448448,"data":"\n"}
+,{"stream_name":"stderr","time":172.018451607,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018455125,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018458238,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018461582,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":172.018464985,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":172.018468959,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":173.960250591,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":173.960302303,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":174.163077346,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":174.163133322,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":174.163140768,"data":"\n"}
+,{"stream_name":"stderr","time":174.16314615,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":174.163152085,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":175.88436995,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":175.884413913,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":176.003501873,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":176.003535605,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":176.087103467,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":176.087144181,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":176.087149797,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":176.087155174,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":176.087159682,"data":"\n"}
+,{"stream_name":"stderr","time":176.087180771,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":176.087184607,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":176.087187846,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":176.087191586,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":177.055127421,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":177.055318831,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":177.257475202,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":177.257517678,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":177.257522914,"data":"\n"}
+,{"stream_name":"stderr","time":177.257526605,"data":"/usr/local/lib/python3.12/dist-packages/sklearn/svm/_base.py:1249: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.\n"}
+,{"stream_name":"stderr","time":177.257530343,"data":"  warnings.warn(\n"}
+,{"stream_name":"stdout","time":179.733016308,"data":"CV F1 scores: [0.9403 0.9388 0.9523 0.9449 0.9522]\n"}
+,{"stream_name":"stdout","time":179.733071671,"data":"Mean:  0.9457\n"}
+,{"stream_name":"stdout","time":179.733078865,"data":"Std:   0.0057\n"}
+,{"stream_name":"stdout","time":179.733084339,"data":"Range: 0.9388 – 0.9523\n"}
+,{"stream_name":"stdout","time":179.733089836,"data":"\n"}
+,{"stream_name":"stdout","time":179.733094816,"data":"Low variance across folds → model is stable and consistent.\n"}
+,{"stream_name":"stdout","time":179.908372272,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":179.908403928,"data":"SVM FINAL RESULTS SUMMARY\n"}
+,{"stream_name":"stdout","time":179.90840834,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":179.908411928,"data":"  model                  SVM (LinearSVC + TF-IDF)\n"}
+,{"stream_name":"stdout","time":179.908415302,"data":"  best_C                 1.0000\n"}
+,{"stream_name":"stdout","time":179.90841861,"data":"  accuracy               0.9524\n"}
+,{"stream_name":"stdout","time":179.908421933,"data":"  weighted_f1            0.9511\n"}
+,{"stream_name":"stdout","time":179.908425112,"data":"  macro_f1               0.8805\n"}
+,{"stream_name":"stdout","time":179.908428926,"data":"  f1_negative            0.7878\n"}
+,{"stream_name":"stdout","time":179.908446658,"data":"  f1_positive            0.9732\n"}
+,{"stream_name":"stdout","time":179.908452151,"data":"  roc_auc                0.9751\n"}
+,{"stream_name":"stdout","time":179.908457659,"data":"  avg_precision          0.9963\n"}
+,{"stream_name":"stdout","time":179.908463361,"data":"  cv_mean_f1             0.9457\n"}
+,{"stream_name":"stdout","time":179.908468341,"data":"  cv_std_f1              0.0057\n"}
+,{"stream_name":"stdout","time":179.908473135,"data":"  tn                     349\n"}
+,{"stream_name":"stdout","time":179.908477893,"data":"  fp                     123\n"}
+,{"stream_name":"stdout","time":179.908482499,"data":"  fn                     65\n"}
+,{"stream_name":"stdout","time":179.908487383,"data":"  tp                     3415\n"}
+,{"stream_name":"stdout","time":179.908507408,"data":"============================================================\n"}
+,{"stream_name":"stdout","time":179.908510307,"data":"\n"}
+,{"stream_name":"stdout","time":179.908512535,"data":"Saved: svm_model.pkl\n"}
+,{"stream_name":"stdout","time":179.908514832,"data":"Saved: svm_results.json\n"}
+,{"stream_name":"stdout","time":179.908517428,"data":"\n"}
+,{"stream_name":"stdout","time":179.908519653,"data":"\u003e\u003e\u003e Phase 4 complete. Ready for Phase 5: Bidirectional LSTM.\n"}
+,{"stream_name":"stderr","time":184.985682168,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":184.985739799,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":185.129222215,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":185.129253359,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":185.728945192,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":186.142651595,"data":"[NbConvertApp] Writing 2329326 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":188.500486659,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":189.665738,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":189.665775485,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.666221422,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.66645366,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.666784294,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.667395068,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.66766086,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.667952677,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.66820467,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.668394275,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.668600995,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.668832186,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.669033794,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.669287718,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.669522566,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.669728926,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.669971867,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.670218609,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":189.670464939,"data":"[NbConvertApp] Writing 756830 bytes to __results__.html\n"}
+]
