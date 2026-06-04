@@ -29,7 +29,7 @@ with open(load("scaler.pkl"),     "rb") as f: scaler     = pickle.load(f)
 with open(load("tokenizer.pkl"),  "rb") as f: tokenizer  = pickle.load(f)
 with open(load("final_comparison.json"))  as f: comparison = json.load(f)
 
-lstm_model   = tf.keras.models.load_model(load("bilstm_final.keras"))
+lstm_model   = tf.keras.models.load_model(load("bilstm_final.h5"))
 MAX_LEN_LSTM = lstm_model.input_shape[1]
 
 nlp   = spacy.load("en_core_web_sm", disable=["parser", "ner"])
