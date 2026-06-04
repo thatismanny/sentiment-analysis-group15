@@ -5,12 +5,12 @@ colorFrom: red
 colorTo: red
 sdk: gradio
 sdk_version: "4.0.0"
-python_version: "3.10"
 app_file: app.py
 pinned: true
 ---
 
-# Sentiment Analysis on Product Reviews
+# Sentiment Analysis on Women's E-Cmmerce Clothing Reviews
+**Manny**
 
 Binary sentiment classification using SVM + TF-IDF and Bidirectional LSTM.
 
@@ -26,8 +26,13 @@ Binary sentiment classification using SVM + TF-IDF and Bidirectional LSTM.
 **Key finding:** SVM wins on aggregate. BiLSTM wins on negative recall
 (+10.59pp) — the metric that matters most for complaint detection.
 
-## Dataset
-Women's E-Commerce Clothing Review Reviews — Kaggle
+## Run locally
+```bash
+git clone https://github.com/thatismanny/sentiment-analysis-group15
+cd sentiment-analysis-group15
+pip install -r requirements.txt
+python app.py
+```
 
 ## References
-See full report in notebooks/
+See notebooks/ for full report and methodology.

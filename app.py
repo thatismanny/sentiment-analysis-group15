@@ -1,6 +1,5 @@
 
 import os
-import sys
 import gradio as gr
 import numpy as np
 import scipy.sparse as sp
@@ -8,6 +7,10 @@ import pickle
 import re
 import json
 import tensorflow as tf
+from tensorflow.keras.models    import Sequential
+from tensorflow.keras.layers    import (Embedding, Bidirectional, LSTM,
+                                         Dense, Dropout, SpatialDropout1D)
+from tensorflow.keras.optimizers import Adam
 import nltk
 import spacy
 import warnings
@@ -23,14 +26,41 @@ MODELS_DIR = os.path.join(BASE, "models")
 def load(filename):
     return os.path.join(MODELS_DIR, filename)
 
-with open(load("svm_model.pkl"),  "rb") as f: svm_model  = pickle.load(f)
-with open(load("tfidf.pkl"),      "rb") as f: tfidf      = pickle.load(f)
-with open(load("scaler.pkl"),     "rb") as f: scaler     = pickle.load(f)
-with open(load("tokenizer.pkl"),  "rb") as f: tokenizer  = pickle.load(f)
-with open(load("final_comparison.json"))  as f: comparison = json.load(f)
+with open(load("svm_model.pkl"),        "rb") as f: svm_model  = pickle.load(f)
+with open(load("tfidf.pkl"),            "rb") as f: tfidf      = pickle.load(f)
+with open(load("scaler.pkl"),           "rb") as f: scaler     = pickle.load(f)
+with open(load("tokenizer.pkl"),        "rb") as f: tokenizer  = pickle.load(f)
+with open(load("final_comparison.json"))      as f: comparison = json.load(f)
 
-lstm_model   = tf.keras.models.load_model(load("bilstm_final.h5"))
-MAX_LEN_LSTM = lstm_model.input_shape[1]
+MAX_VOCAB    = 20000
+vocab_size   = min(MAX_VOCAB, len(tokenizer.word_index) + 1)
+MAX_LEN_LSTM = 101
+
+def build_bilstm(vocab_size, max_len):
+    model = Sequential([
+        Embedding(vocab_size, 128,
+                  input_length=max_len,   name="embedding"),
+        SpatialDropout1D(0.3,             name="spatial_dropout"),
+        Bidirectional(
+            LSTM(64,
+                 dropout=0.2,
+                 recurrent_dropout=0.2,
+                 return_sequences=False), name="bilstm"),
+        Dense(32, activation="relu",      name="dense_hidden"),
+        Dropout(0.5,                      name="dense_dropout"),
+        Dense(1,  activation="sigmoid",   name="output")
+    ])
+    model.compile(
+        optimizer=Adam(learning_rate=0.001),
+        loss="binary_crossentropy",
+        metrics=["accuracy"]
+    )
+    return model
+
+lstm_model = build_bilstm(vocab_size, MAX_LEN_LSTM)
+lstm_model.build(input_shape=(None, MAX_LEN_LSTM))
+lstm_model.load_weights(load("bilstm_final.weights.h5"))
+print("All models loaded.")
 
 nlp   = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 STOP  = set(stopwords.words("english")) - {
@@ -42,8 +72,8 @@ NEG_P = (r"\b(not|never|no|dont|doesnt|didnt|"
 def preprocess_svm(text):
     t = str(text).lower()
     t = re.sub(r"<.*?>",      "", t)
-    t = re.sub(r"http\S+",   "", t)
-    t = re.sub(r"'",         "", t)
+    t = re.sub(r"http\S+",    "", t)
+    t = re.sub(r"'",          "", t)
     t = re.sub(NEG_P + r"\s+(\w+)",
                lambda m: m.group(1)+"_"+m.group(2), t)
     t = re.sub(r"[^a-z\s_]", "", t)
@@ -53,9 +83,9 @@ def preprocess_svm(text):
 
 def preprocess_lstm(text):
     t = str(text).lower()
-    t = re.sub(r"<.*?>",  "", t)
-    t = re.sub(r"http\S+","", t)
-    t = re.sub(r"\s+",   " ", t).strip()
+    t = re.sub(r"<.*?>",   "", t)
+    t = re.sub(r"http\S+", "", t)
+    t = re.sub(r"\s+",     " ", t).strip()
     return t
 
 def predict_svm(text):
@@ -66,9 +96,9 @@ def predict_svm(text):
         sum(1 for c in text if c.isupper()) / (len(text)+1),
         len(text.split()), 0
     ]])
-    x     = sp.hstack([vec, sp.csr_matrix(eng)])
-    pred  = svm_model.predict(x)[0]
-    prob  = svm_model.predict_proba(x)[0]
+    x    = sp.hstack([vec, sp.csr_matrix(eng)])
+    pred = svm_model.predict(x)[0]
+    prob = svm_model.predict_proba(x)[0]
     return int(pred), float(prob[1]), float(prob[0])
 
 def predict_lstm(text):
@@ -81,12 +111,12 @@ def predict_lstm(text):
 
 def make_bar(prob, width=20):
     filled = int(round(prob * width))
-    return f"[{chr(9608)*filled}{chr(9617)*(width-filled)}] {prob*100:.1f}%"
+    return f"[{'█'*filled}{'░'*(width-filled)}] {prob*100:.1f}%"
 
 def build_stats(text):
     return (f"📊 {len(text.split())} words  |  "
             f"{len(text)} chars  |  "
-            f"{text.count(chr(33))} exclamation marks  |  "
+            f"{text.count('!')} exclamation marks  |  "
             f"{sum(1 for c in text if c.isupper())} capitals")
 
 def build_interpretation(text, pred, prob_pos,
@@ -115,9 +145,11 @@ def build_interpretation(text, pred, prob_pos,
         lines.append(f"The {model_name} classified this as **{label}** "
                      f"and is {certainty} ({conf:.1f}%).")
     if found_neg:
-        lines.append(f"⚡ Negation detected ({', '.join(found_neg[:3])}).")
+        lines.append(
+            f"⚡ Negation detected ({', '.join(found_neg[:3])}).")
     if len(text.split()) < 10:
-        lines.append("ℹ️ Short review — confidence may be lower than usual.")
+        lines.append(
+            "ℹ️ Short review — confidence may be lower than usual.")
     return "  \n".join(lines)
 
 def analyse_sentiment(review_text, model_choice):
@@ -145,14 +177,16 @@ def analyse_sentiment(review_text, model_choice):
         result = f"**SVM:** {label}  ({max(p_pos,p_neg)*100:.1f}%)"
         bars   = (f"P(positive): {make_bar(p_pos)}\n"
                   f"P(negative): {make_bar(p_neg)}")
-        interp = build_interpretation(text, pred, p_pos, model_name="SVM")
+        interp = build_interpretation(
+            text, pred, p_pos, model_name="SVM")
     else:
         pred, p_pos, p_neg = predict_lstm(text)
         label  = "POSITIVE 😊" if pred == 1 else "NEGATIVE 😞"
         result = f"**BiLSTM:** {label}  ({max(p_pos,p_neg)*100:.1f}%)"
         bars   = (f"P(positive): {make_bar(p_pos)}\n"
                   f"P(negative): {make_bar(p_neg)}")
-        interp = build_interpretation(text, pred, p_pos, model_name="BiLSTM")
+        interp = build_interpretation(
+            text, pred, p_pos, model_name="BiLSTM")
     return result, bars, interp, build_stats(text)
 
 svm_r  = comparison["svm"]
@@ -160,10 +194,10 @@ lstm_r = comparison["lstm"]
 
 EXAMPLES = [
     ["This product is absolutely amazing! Works perfectly.", "Both models"],
-    ["Complete waste of money. Broke after two days.", "Both models"],
-    ["Great camera but the battery life is disappointing.", "Both models"],
-    ["Not what I expected. Does not work as described.", "Both models"],
-    ["Decent product for the price. Does the job.", "Both models"],
+    ["Complete waste of money. Broke after two days.",       "Both models"],
+    ["Great camera but the battery life is disappointing.",  "Both models"],
+    ["Not what I expected. Does not work as described.",     "Both models"],
+    ["Decent product for the price. Does the job.",          "Both models"],
 ]
 
 with gr.Blocks(
@@ -171,53 +205,70 @@ with gr.Blocks(
     theme=gr.themes.Base(primary_hue="red", neutral_hue="slate"),
     css="footer { display: none !important; }"
 ) as demo:
-    gr.HTML("""
+    gr.HTML(f""
         <div style="text-align:center; padding:1.2rem 0 0.5rem">
-            <h1 style="color:#C0392B">🔍 Product Review Sentiment Analyser</h1>
-            <p style="color:#888">Group 15 · TechCrunch Cohort 6 · SVM vs BiLSTM</p>
-            <hr style="border-color:#C0392B; opacity:0.3; margin:0.8rem 0 0.4rem">
+            <h1 style="color:#C0392B">
+                🔍 Product Review Sentiment Analyser
+            </h1>
+            <p style="color:#888">
+                Group 15 · TechCrunch Cohort 6 · SVM vs BiLSTM
+            </p>
+            <hr style="border-color:#C0392B;opacity:0.3;margin:0.8rem 0 0.4rem">
         </div>
-    """)
+    "")
     with gr.Row():
         with gr.Column(scale=3):
             review_input = gr.Textbox(
                 label="Enter a product review",
-                placeholder="e.g. This product is amazing! or Broke after two days.",
+                placeholder=(
+                    "e.g. This product is amazing! "
+                    "or Broke after two days."),
                 lines=5, max_lines=10)
             model_choice = gr.Radio(
                 choices=["SVM (LinearSVC + TF-IDF)",
-                         "Bidirectional LSTM", "Both models"],
-                value="Both models", label="Select model")
+                         "Bidirectional LSTM",
+                         "Both models"],
+                value="Both models",
+                label="Select model")
             with gr.Row():
-                submit_btn = gr.Button("Analyse Sentiment", variant="primary")
-                clear_btn  = gr.Button("Clear", variant="secondary")
+                submit_btn = gr.Button("Analyse Sentiment",
+                                       variant="primary")
+                clear_btn  = gr.Button("Clear",
+                                       variant="secondary")
         with gr.Column(scale=2):
-            gr.HTML(f"""
-                <div style="background:#1a0a0a; border:1px solid #C0392B;
-                            border-radius:8px; padding:1rem;
-                            font-size:0.88rem; color:#ccc">
+            gr.HTML(f""
+                <div style="background:#1a0a0a;border:1px solid #C0392B;
+                            border-radius:8px;padding:1rem;
+                            font-size:0.88rem;color:#ccc">
                     <b style="color:#E57373">Model Guide</b><br><br>
-                    <b style="color:#fff">SVM</b> — Accuracy {svm_r["accuracy"]*100:.1f}%
-                    · F1 {svm_r["weighted_f1"]:.4f}<br><br>
+                    <b style="color:#fff">SVM</b> — Accuracy
+                    {svm_r['accuracy']*100:.1f}% ·
+                    F1 {svm_r['weighted_f1']:.4f}<br><br>
                     <b style="color:#fff">BiLSTM</b> — Neg recall
-                    {lstm_r["neg_recall"]*100:.1f}% (better for complaints)<br><br>
-                    <b style="color:#fff">Both</b> — Compare both models
-                </div>""")
-    gr.HTML("<hr style='border-color:#C0392B; opacity:0.2'>")
+                    {lstm_r['neg_recall']*100:.1f}%
+                    (better for complaints)<br><br>
+                    <b style="color:#fff">Both</b> —
+                    Compare both models
+                </div>
+            "")
+    gr.HTML("<hr style='border-color:#C0392B;opacity:0.2'>")
     result_label = gr.Markdown(label="Prediction")
     prob_bar     = gr.Markdown(label="Probability")
     interp_text  = gr.Markdown(label="Interpretation")
     stats_text   = gr.Markdown(label="Review Stats")
-    gr.HTML("<hr style='border-color:#C0392B; opacity:0.2'>")
-    gr.Examples(examples=EXAMPLES, inputs=[review_input, model_choice],
+    gr.HTML("<hr style='border-color:#C0392B;opacity:0.2'>")
+    gr.Examples(examples=EXAMPLES,
+                inputs=[review_input, model_choice],
                 label="Try these examples")
+
     submit_btn.click(fn=analyse_sentiment,
                      inputs=[review_input, model_choice],
                      outputs=[result_label, prob_bar,
                                interp_text, stats_text])
-    clear_btn.click(fn=lambda: ("Both models","","","",""),
-                    outputs=[model_choice, result_label,
-                              prob_bar, interp_text, stats_text])
+    clear_btn.click(
+        fn=lambda: ("Both models", "", "", "", ""),
+        outputs=[model_choice, result_label,
+                  prob_bar, interp_text, stats_text])
     review_input.submit(fn=analyse_sentiment,
                         inputs=[review_input, model_choice],
                         outputs=[result_label, prob_bar,

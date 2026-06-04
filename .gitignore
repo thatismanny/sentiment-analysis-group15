@@ -1,7 +1,9 @@
 models/*.pkl
+models/*.h5
 models/*.keras
 models/*.npy
 models/*.npz
+models/*.json
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
