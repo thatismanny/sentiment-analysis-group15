@@ -44,7 +44,7 @@ with open(load("scaler.pkl"),           "rb") as f: scaler     = pickle.load(f)
 with open(load("tokenizer.pkl"),        "rb") as f: tokenizer  = pickle.load(f)
 with open(load("final_comparison.json"))      as f: comparison = json.load(f)
 
-MAX_VOCAB    = 20000
+MAX_VOCAB    = 13000
 vocab_size   = min(MAX_VOCAB, len(tokenizer.word_index) + 1)
 MAX_LEN_LSTM = 101
 
