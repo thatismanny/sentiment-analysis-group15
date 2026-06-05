@@ -55,11 +55,11 @@ def build_bilstm(vocab_size, max_len):
         SpatialDropout1D(0.3,             name="spatial_dropout"),
         Bidirectional(
             LSTM(64,
-                 dropout=0.2,
-                 recurrent_dropout=0.2,
+                 dropout=0.3,
+                 recurrent_dropout=0.3,
                  return_sequences=False), name="bilstm"),
         Dense(32, activation="relu",      name="dense_hidden"),
-        Dropout(0.5,                      name="dense_dropout"),
+        Dropout(0.6,                      name="dense_dropout"),
         Dense(1,  activation="sigmoid",   name="output")
     ])
     model.compile(
