@@ -217,7 +217,7 @@ with gr.Blocks(
     theme=gr.themes.Base(primary_hue="red", neutral_hue="slate"),
     css="footer { display: none !important; }"
 ) as demo:
-    gr.HTML(f""
+    gr.HTML(f"""
         <div style="text-align:center; padding:1.2rem 0 0.5rem">
             <h1 style="color:#C0392B">
                 🔍 Product Review Sentiment Analyser
@@ -227,7 +227,7 @@ with gr.Blocks(
             </p>
             <hr style="border-color:#C0392B;opacity:0.3;margin:0.8rem 0 0.4rem">
         </div>
-    "")
+    """)
     with gr.Row():
         with gr.Column(scale=3):
             review_input = gr.Textbox(
@@ -248,7 +248,7 @@ with gr.Blocks(
                 clear_btn  = gr.Button("Clear",
                                        variant="secondary")
         with gr.Column(scale=2):
-            gr.HTML(f""
+            gr.HTML(f"""
                 <div style="background:#1a0a0a;border:1px solid #C0392B;
                             border-radius:8px;padding:1rem;
                             font-size:0.88rem;color:#ccc">
@@ -262,7 +262,7 @@ with gr.Blocks(
                     <b style="color:#fff">Both</b> —
                     Compare both models
                 </div>
-            "")
+            """)
     gr.HTML("<hr style='border-color:#C0392B;opacity:0.2'>")
     result_label = gr.Markdown(label="Prediction")
     prob_bar     = gr.Markdown(label="Probability")
