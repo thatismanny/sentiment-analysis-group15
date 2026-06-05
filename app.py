@@ -23,6 +23,18 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 BASE       = os.path.dirname(__file__)
 MODELS_DIR = os.path.join(BASE, "models")
 
+import spacy
+import subprocess
+import sys
+
+# Download the English model if not already present
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    print("Downloading spaCy model 'en_core_web_sm'...")
+    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"], check=True)
+    nlp = spacy.load("en_core_web_sm")
+
 def load(filename):
     return os.path.join(MODELS_DIR, filename)
 
