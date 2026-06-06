@@ -272,57 +272,68 @@ with gr.Blocks(
                 inputs=[review_input, model_choice],
                 label="Try these examples")
 
-     # ── Model performance summary accordion
-    with gr.Accordion("📊 Model Performance Summary", open=False):
-        svm_r  = comparison['svm']
-        lstm_r = comparison['lstm']
-        gr.HTML(f"""
-            <table style="width:100%; border-collapse:collapse;
-                          font-size:0.9rem; color:#ddd">
-                <thead>
-                    <tr style="background:#6D0000; color:white">
-                        <th style="padding:8px; text-align:left">Metric</th>
-                        <th style="padding:8px; text-align:center">
-                            SVM</th>
-                        <th style="padding:8px; text-align:center">
-                            BiLSTM</th>
-                        <th style="padding:8px; text-align:center">
-                            Winner</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {''.join(f"""
-                    <tr style=\"background:{'#1a0a0a' if i%2==0 else '#110505'}\">
-                        <td style="padding:7px">{m}</td>
-                        <td style="padding:7px; text-align:center">{sv}</td>
-                        <td style="padding:7px; text-align:center">{lv}</td>
-                        <td style="padding:7px; text-align:center">{w}</td>
-                    </tr>""")
-                    for i,(m,sv,lv,w) in enumerate([
-                        ('Accuracy',
-                         f"{svm_r['accuracy']:.4f}",
-                         f"{lstm_r['accuracy']:.4f}", '🔴 SVM'),
-                        ('Weighted F1',
-                         f"{svm_r['weighted_f1']:.4f}",
-                         f"{lstm_r['weighted_f1']:.4f}", '🔴 SVM'),
-                        ('ROC-AUC',
-                         f"{svm_r['roc_auc']:.4f}",
-                         f"{lstm_r['roc_auc']:.4f}", '🔴 SVM'),
-                        ('Negative Recall',
-                         f"{svm_r['tn']/(svm_r['tn']+svm_r['fp']):.4f}",
-                         f"{lstm_r['neg_recall']:.4f}", '🟢 BiLSTM'),
-                        ('F1 — Negative',
-                         f"{svm_r['f1_negative']:.4f}",
-                         f"{lstm_r['f1_negative']:.4f}", '🔴 SVM'),
-                    ])}
-                </tbody>
-            </table>
-            <p style="color:#888; font-size:0.82rem; margin-top:8px">
-                Key finding: SVM wins on aggregate metrics.
-                BiLSTM wins on negative recall (+11.02pp) —
-                the metric that matters most for complaint detection.
-            </p>
+# ── Model performance summary accordion
+with gr.Accordion("📊 Model Performance Summary", open=False):
+    svm_r  = comparison['svm']
+    lstm_r = comparison['lstm']
+
+    # Build table rows first (to avoid complex f-string nesting)
+    rows = []
+    metrics = [
+        ('Accuracy',
+         f"{svm_r['accuracy']:.4f}",
+         f"{lstm_r['accuracy']:.4f}",
+         '🔴 SVM'),
+        ('Weighted F1',
+         f"{svm_r['weighted_f1']:.4f}",
+         f"{lstm_r['weighted_f1']:.4f}",
+         '🔴 SVM'),
+        ('ROC-AUC',
+         f"{svm_r['roc_auc']:.4f}",
+         f"{lstm_r['roc_auc']:.4f}",
+         '🔴 SVM'),
+        ('Negative Recall',
+         f"{svm_r['tn']/(svm_r['tn']+svm_r['fp']):.4f}",
+         f"{lstm_r['neg_recall']:.4f}",
+         '🟢 BiLSTM'),
+        ('F1 — Negative',
+         f"{svm_r['f1_negative']:.4f}",
+         f"{lstm_r['f1_negative']:.4f}",
+         '🔴 SVM'),
+    ]
+
+    for i, (m, sv, lv, w) in enumerate(metrics):
+        bg = "#1a0a0a" if i % 2 == 0 else "#110505"
+        rows.append(f"""
+            <tr style="background:{bg}">
+                <td style="padding:7px">{m}</td>
+                <td style="padding:7px; text-align:center">{sv}</td>
+                <td style="padding:7px; text-align:center">{lv}</td>
+                <td style="padding:7px; text-align:center">{w}</td>
+            </tr>
         """)
+
+    gr.HTML(f'''
+        <table style="width:100%; border-collapse:collapse;
+                      font-size:0.9rem; color:#ddd">
+            <thead>
+                <tr style="background:#6D0000; color:white">
+                    <th style="padding:8px; text-align:left">Metric</th>
+                    <th style="padding:8px; text-align:center">SVM</th>
+                    <th style="padding:8px; text-align:center">BiLSTM</th>
+                    <th style="padding:8px; text-align:center">Winner</th>
+                </tr>
+            </thead>
+            <tbody>
+                {''.join(rows)}
+            </tbody>
+        </table>
+        <p style="color:#888; font-size:0.82rem; margin-top:8px">
+            Key finding: SVM wins on aggregate metrics.
+            BiLSTM wins on negative recall (+11.02pp) —
+            the metric that matters most for complaint detection.
+        </p>
+    ''')
   
     submit_btn.click(fn=analyse_sentiment,
                      inputs=[review_input, model_choice],
