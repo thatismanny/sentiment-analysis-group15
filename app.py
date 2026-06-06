@@ -336,28 +336,28 @@ with gr.Accordion("📊 Model Performance Summary", open=False):
     ''')
   
     with gr.Blocks() as demo:
-    review_input = gr.Textbox(label="Review")
-    model_choice = gr.Radio(["SVM", "BiLSTM"], label="Model")
-    submit_btn = gr.Button("Submit")
-    clear_btn = gr.Button("Clear")
-    result_label = gr.Label()
-    prob_bar = gr.Progress()
-    interp_text = gr.Textbox(label="Interpretation")
-    stats_text = gr.Textbox(label="Statistics")
-
-    # ✅ Now events are inside the context
-    submit_btn.click(fn=analyse_sentiment,
-                     inputs=[review_input, model_choice],
-                     outputs=[result_label, prob_bar, interp_text, stats_text])
-
-    clear_btn.click(
-        fn=lambda: ("Both models", "", "", "", ""),
-        outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
-    )
-
-    review_input.submit(fn=analyse_sentiment,
-                        inputs=[review_input, model_choice],
-                        outputs=[result_label, prob_bar, interp_text, stats_text])
+        review_input = gr.Textbox(label="Review")
+        model_choice = gr.Radio(["SVM", "BiLSTM"], label="Model")
+        submit_btn = gr.Button("Submit")
+        clear_btn = gr.Button("Clear")
+        result_label = gr.Label()
+        prob_bar = gr.Progress()
+        interp_text = gr.Textbox(label="Interpretation")
+        stats_text = gr.Textbox(label="Statistics")
+    
+        # ✅ Now events are inside the context
+        submit_btn.click(fn=analyse_sentiment,
+                         inputs=[review_input, model_choice],
+                         outputs=[result_label, prob_bar, interp_text, stats_text])
+    
+        clear_btn.click(
+            fn=lambda: ("Both models", "", "", "", ""),
+            outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
+        )
+    
+        review_input.submit(fn=analyse_sentiment,
+                            inputs=[review_input, model_choice],
+                            outputs=[result_label, prob_bar, interp_text, stats_text])
 
 if __name__ == "__main__":
     demo.launch(
