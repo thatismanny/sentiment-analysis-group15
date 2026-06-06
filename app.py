@@ -292,7 +292,7 @@ with gr.Blocks(
                 </thead>
                 <tbody>
                     {''.join(f"""
-                    <tr style="background:{'#1a0a0a' if i%2==0 else '#110505'}">
+                    <tr style=\"background:{'#1a0a0a' if i%2==0 else '#110505'}\">
                         <td style="padding:7px">{m}</td>
                         <td style="padding:7px; text-align:center">{sv}</td>
                         <td style="padding:7px; text-align:center">{lv}</td>
