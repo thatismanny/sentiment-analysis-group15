@@ -297,7 +297,7 @@ with gr.Blocks(
                         <td style="padding:7px; text-align:center">{sv}</td>
                         <td style="padding:7px; text-align:center">{lv}</td>
                         <td style="padding:7px; text-align:center">{w}</td>
-                    </tr>"""
+                    </tr>""")
                     for i,(m,sv,lv,w) in enumerate([
                         ('Accuracy',
                          f"{svm_r['accuracy']:.4f}",
