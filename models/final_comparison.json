@@ -1,0 +1,46 @@
+{
+  "svm": {
+    "model": "SVM (LinearSVC + TF-IDF)",
+    "best_C": 1.0,
+    "accuracy": 0.9524291497975709,
+    "weighted_f1": 0.9510686641277329,
+    "macro_f1": 0.880511062491999,
+    "f1_negative": 0.7878103837471784,
+    "f1_positive": 0.9732117412368196,
+    "roc_auc": 0.9751327196571205,
+    "avg_precision": 0.9962634156057852,
+    "cv_mean_f1": 0.9464811456027558,
+    "cv_std_f1": 0.004809942454361256,
+    "tn": 349,
+    "fp": 123,
+    "fn": 65,
+    "tp": 3415
+  },
+  "lstm": {
+    "model": "Bidirectional LSTM",
+    "best_epoch": 3,
+    "actual_epochs": 7,
+    "accuracy": 0.916751012145749,
+    "weighted_f1": 0.924227089070224,
+    "macro_f1": 0.8393665630746745,
+    "f1_negative": 0.727874276261373,
+    "f1_positive": 0.9508588498879761,
+    "roc_auc": 0.9751729008377168,
+    "avg_precision": 0.9963171072957597,
+    "neg_recall": 0.9322033898305084,
+    "pos_recall": 0.9146551724137931,
+    "tn": 440,
+    "fp": 32,
+    "fn": 297,
+    "tp": 3183
+  },
+  "key_finding": {
+    "svm_wins_aggregate": true,
+    "lstm_wins_neg_recall": true,
+    "neg_recall_delta_pp": 19.28,
+    "weighted_f1_delta": -0.0268,
+    "roc_auc_delta": 0.0,
+    "recommended_model_brand_monitoring": "BiLSTM",
+    "recommended_model_general": "SVM"
+  }
+}
