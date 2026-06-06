@@ -361,7 +361,7 @@ with gr.Accordion("📊 Model Performance Summary", open=False):
 
 if __name__ == "__main__":
     demo.launch(
-          share=True,       # generates a public gradio.live link
+          share=True,       # generates a public gradio.live link for use
           debug=False,
           show_error=True
     )
