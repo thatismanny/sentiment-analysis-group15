@@ -314,7 +314,7 @@ with gr.Blocks(
                         ('F1 — Negative',
                          f"{svm_r['f1_negative']:.4f}",
                          f"{lstm_r['f1_negative']:.4f}", '🔴 SVM'),
-                    ]))}
+                    ])}
                 </tbody>
             </table>
             <p style="color:#888; font-size:0.82rem; margin-top:8px">
