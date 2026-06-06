@@ -6,7 +6,7 @@ import scipy.sparse as sp
 import pickle
 import re
 import json
-import tensorflow as tf 
+import tensorflow as tf
 from tensorflow.keras.models    import Sequential
 from tensorflow.keras.layers    import (Embedding, Bidirectional, LSTM,
                                          Dense, Dropout, SpatialDropout1D)
