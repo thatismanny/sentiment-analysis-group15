@@ -1,5 +1,5 @@
 # Sentiment Analysis Group 15 — TechCrunch Cohort 6
-gradio>=4.0.0
+gradio>=4.44.1
 tensorflow>=2.21.0
 scikit-learn>=1.3.0
 scipy>=1.11.0
