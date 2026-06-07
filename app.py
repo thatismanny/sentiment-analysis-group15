@@ -272,96 +272,103 @@ with gr.Blocks(
                 inputs=[review_input, model_choice],
                 label="Try these examples")
 
-# ── Model performance summary accordion
-with gr.Accordion("📊 Model Performance Summary", open=False):
-    svm_r  = comparison['svm']
-    lstm_r = comparison['lstm']
+# ── Model performance summary accordion (inside the same Blocks)
+with gr.Blocks() as demo:
+    # First, the comparison table inside an accordion
+    with gr.Accordion("📊 Model Performance Summary", open=False):
+        svm_r  = comparison['svm']
+        lstm_r = comparison['lstm']
 
-    # Build table rows first (to avoid complex f-string nesting)
-    rows = []
-    metrics = [
-        ('Accuracy',
-         f"{svm_r['accuracy']:.4f}",
-         f"{lstm_r['accuracy']:.4f}",
-         '🔴 SVM'),
-        ('Weighted F1',
-         f"{svm_r['weighted_f1']:.4f}",
-         f"{lstm_r['weighted_f1']:.4f}",
-         '🔴 SVM'),
-        ('ROC-AUC',
-         f"{svm_r['roc_auc']:.4f}",
-         f"{lstm_r['roc_auc']:.4f}",
-         '🔴 SVM'),
-        ('Negative Recall',
-         f"{svm_r['tn']/(svm_r['tn']+svm_r['fp']):.4f}",
-         f"{lstm_r['neg_recall']:.4f}",
-         '🟢 BiLSTM'),
-        ('F1 — Negative',
-         f"{svm_r['f1_negative']:.4f}",
-         f"{lstm_r['f1_negative']:.4f}",
-         '🔴 SVM'),
-    ]
+        # Build table rows
+        rows = []
+        metrics = [
+            ('Accuracy',
+             f"{svm_r['accuracy']:.4f}",
+             f"{lstm_r['accuracy']:.4f}",
+             '🔴 SVM'),
+            ('Weighted F1',
+             f"{svm_r['weighted_f1']:.4f}",
+             f"{lstm_r['weighted_f1']:.4f}",
+             '🔴 SVM'),
+            ('ROC-AUC',
+             f"{svm_r['roc_auc']:.4f}",
+             f"{lstm_r['roc_auc']:.4f}",
+             '🔴 SVM'),
+            ('Negative Recall',
+             f"{svm_r['tn']/(svm_r['tn']+svm_r['fp']):.4f}",
+             f"{lstm_r['neg_recall']:.4f}",
+             '🟢 BiLSTM'),
+            ('F1 — Negative',
+             f"{svm_r['f1_negative']:.4f}",
+             f"{lstm_r['f1_negative']:.4f}",
+             '🔴 SVM'),
+        ]
 
-    for i, (m, sv, lv, w) in enumerate(metrics):
-        bg = "#1a0a0a" if i % 2 == 0 else "#110505"
-        rows.append(f"""
-            <tr style="background:{bg}">
-                <td style="padding:7px">{m}</td>
-                <td style="padding:7px; text-align:center">{sv}</td>
-                <td style="padding:7px; text-align:center">{lv}</td>
-                <td style="padding:7px; text-align:center">{w}</td>
-            </tr>
-        """)
-
-    gr.HTML(f'''
-        <table style="width:100%; border-collapse:collapse;
-                      font-size:0.9rem; color:#ddd">
-            <thead>
-                <tr style="background:#6D0000; color:white">
-                    <th style="padding:8px; text-align:left">Metric</th>
-                    <th style="padding:8px; text-align:center">SVM</th>
-                    <th style="padding:8px; text-align:center">BiLSTM</th>
-                    <th style="padding:8px; text-align:center">Winner</th>
+        for i, (m, sv, lv, w) in enumerate(metrics):
+            bg = "#1a0a0a" if i % 2 == 0 else "#110505"
+            rows.append(f"""
+                <tr style="background:{bg}">
+                    <td style="padding:7px">{m}</td>
+                    <td style="padding:7px; text-align:center">{sv}</td>
+                    <td style="padding:7px; text-align:center">{lv}</td>
+                    <td style="padding:7px; text-align:center">{w}</td>
                 </tr>
-            </thead>
-            <tbody>
-                {''.join(rows)}
-            </tbody>
-        </table>
-        <p style="color:#888; font-size:0.82rem; margin-top:8px">
-            Key finding: SVM wins on aggregate metrics.
-            BiLSTM wins on negative recall (+11.02pp) —
-            the metric that matters most for complaint detection.
-        </p>
-    ''')
-  
-    with gr.Blocks() as demo:
-        review_input = gr.Textbox(label="Review")
-        model_choice = gr.Radio(["SVM", "BiLSTM"], label="Model")
-        submit_btn = gr.Button("Submit")
-        clear_btn = gr.Button("Clear")
-        result_label = gr.Label()
-        prob_bar = gr.Progress()
-        interp_text = gr.Textbox(label="Interpretation")
-        stats_text = gr.Textbox(label="Statistics")
-    
-        # ✅ Now events are inside the context
-        submit_btn.click(fn=analyse_sentiment,
-                         inputs=[review_input, model_choice],
-                         outputs=[result_label, prob_bar, interp_text, stats_text])
-    
-        clear_btn.click(
-            fn=lambda: ("Both models", "", "", "", ""),
-            outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
-        )
-    
-        review_input.submit(fn=analyse_sentiment,
-                            inputs=[review_input, model_choice],
-                            outputs=[result_label, prob_bar, interp_text, stats_text])
+            """)
 
+        gr.HTML(f'''
+            <table style="width:100%; border-collapse:collapse;
+                          font-size:0.9rem; color:#ddd">
+                <thead>
+                    <tr style="background:#6D0000; color:white">
+                        <th style="padding:8px; text-align:left">Metric</th>
+                        <th style="padding:8px; text-align:center">SVM</th>
+                        <th style="padding:8px; text-align:center">BiLSTM</th>
+                        <th style="padding:8px; text-align:center">Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {''.join(rows)}
+                </tbody>
+            </table>
+            <p style="color:#888; font-size:0.82rem; margin-top:8px">
+                Key finding: SVM wins on aggregate metrics.
+                BiLSTM wins on negative recall (+11.02pp) —
+                the metric that matters most for complaint detection.
+            </p>
+        ''')
+
+    # ── Main input / output section
+    review_input = gr.Textbox(label="Review")
+    model_choice = gr.Radio(["SVM", "BiLSTM"], label="Model")
+    submit_btn = gr.Button("Submit")
+    clear_btn = gr.Button("Clear")
+    result_label = gr.Label()
+    prob_bar = gr.Progress()
+    interp_text = gr.Textbox(label="Interpretation")
+    stats_text = gr.Textbox(label="Statistics")
+
+    # ── Event handlers (now correctly inside the Blocks context)
+    submit_btn.click(
+        fn=analyse_sentiment,
+        inputs=[review_input, model_choice],
+        outputs=[result_label, prob_bar, interp_text, stats_text]
+    )
+
+    clear_btn.click(
+        fn=lambda: ("Both models", "", "", "", ""),
+        outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
+    )
+
+    review_input.submit(
+        fn=analyse_sentiment,
+        inputs=[review_input, model_choice],
+        outputs=[result_label, prob_bar, interp_text, stats_text]
+    )
+
+# Launch outside the with block
 if __name__ == "__main__":
     demo.launch(
-          share=True,       # generates a public gradio.live link for use 
-          debug=False,
-          show_error=True
+        share=True,
+        debug=False,
+        show_error=True
     )
