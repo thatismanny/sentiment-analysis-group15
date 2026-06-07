@@ -71,6 +71,7 @@ def build_bilstm(vocab_size, max_len):
 
 lstm_model = build_bilstm(vocab_size, MAX_LEN_LSTM)
 lstm_model.build(input_shape=(None, MAX_LEN_LSTM))
+lstm_model.load_weights(load("bilstm_final.weights.h5"))
 print("All models loaded.")
 
 nlp   = spacy.load("en_core_web_sm", disable=["parser", "ner"])
