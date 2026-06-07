@@ -2,7 +2,7 @@
 import os
 import gradio as gr
 import numpy as np 
-import scipy.sparse as sp
+import scipy.sparse as sp 
 import pickle
 import re
 import json
