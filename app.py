@@ -271,6 +271,19 @@ with gr.Blocks(
     gr.Examples(examples=EXAMPLES,
                 inputs=[review_input, model_choice],
                 label="Try these examples")
+    
+    submit_btn.click(fn=analyse_sentiment,
+                     inputs=[review_input, model_choice],
+                     outputs=[result_label, prob_bar,
+                               interp_text, stats_text])
+    clear_btn.click(
+        fn=lambda: ("Both models", "", "", "", ""),
+        outputs=[model_choice, result_label,
+                  prob_bar, interp_text, stats_text])
+    review_input.submit(fn=analyse_sentiment,
+                        inputs=[review_input, model_choice],
+                        outputs=[result_label, prob_bar,
+                                  interp_text, stats_text])
 
 
 # Launch outside the with block
