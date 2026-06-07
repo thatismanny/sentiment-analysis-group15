@@ -272,10 +272,33 @@ with gr.Blocks(
     gr.Examples(examples=EXAMPLES,
                 inputs=[review_input, model_choice],
                 label="Try these examples")
+    
+    # ─── Event handlers ─────────────────────────────────────────────
+    submit_btn.click(
+        fn=analyse_sentiment,
+        inputs=[review_input, model_choice],
+        outputs=[result_label, prob_bar, interp_text, stats_text]
+    )
+
+    # Use a named function instead of lambda to avoid Gradio 5 quirks
+    def clear_all():
+        return "Both models", "", "", "", ""
+    
+    clear_btn.click(
+        fn=clear_all,
+        outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
+    )
+
+    review_input.submit(
+        fn=analyse_sentiment,
+        inputs=[review_input, model_choice],
+        outputs=[result_label, prob_bar, interp_text, stats_text]
+    )
 
 
 # Launch outside the with block
 if __name__ == "__main__":
+    demo.queue(default_concurrency_limit=5)   # recommended for Gradio 5
     demo.launch(
         share=True,
         debug=False,
