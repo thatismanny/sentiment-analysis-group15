@@ -210,6 +210,11 @@ EXAMPLES = [
     ["Great camera but the battery life is disappointing.",  "Both models"],
     ["Not what I expected. Does not work as described.",     "Both models"],
     ["Decent product for the price. Does the job.",          "Both models"],
+    ["Cute style but the zipper is very cheap. I kept it because it fits well, but nervous it’ll break.", "Both models"],
+    ["Great for the price, but the stitching is uneven in a few places. Still wearable.", "Both models"],
+    ["Not as warm as I hoped, but the fit is really nice. Would buy on sale only.", "Both models"],
+    ["The fabric feels nice, but the sizing chart was wrong. Exchange process was easy though.", "Both models"],
+    ["Lovely colour, but it arrived with a small snag. Customer service gave a partial refund.", "Both models"],
 ]
 
 with gr.Blocks(
