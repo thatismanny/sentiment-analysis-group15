@@ -202,9 +202,9 @@ def analyse_sentiment(review_text, model_choice):
                    f"LSTM → P(positive): {make_bar(lp_pos)}")
         interp  = build_interpretation(text, sp_, sp_pos,
                                        lp_, lp_pos, both=True)
-        # For "Both models", we use SVM's confidence for the action (or average)
-        confidence = max(sp_pos, sp_neg) * 100
-        pred_label = s_label
+        # For "Both models", we use LSTM's confidence for the action
+        confidence = max(lp_pos, lp_neg) * 100
+        pred_label = l_label
         next_step  = get_next_step(pred_label, confidence, model_choice)
 
     elif model_choice == "SVM (LinearSVC + TF-IDF)":
