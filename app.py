@@ -164,11 +164,30 @@ def build_interpretation(text, pred, prob_pos,
             "ℹ️ Short review — confidence may be lower than usual.")
     return "  \n".join(lines)
 
+def get_next_step(pred_label, confidence, model_name):
+    """Return actionable recommendation based on prediction and confidence."""
+    if "NEGATIVE" in pred_label:
+        if confidence >= 85:
+            return "🔴 **Urgent:** Contact customer immediately. Offer a return label or discount."
+        elif confidence >= 70:
+            return "🟠 **Action needed:** Monitor this issue. Reply publicly if appropriate."
+        else:
+            return "🟡 **Low confidence negative:** Manual review recommended."
+    else:  # POSITIVE
+        if confidence >= 85:
+            return "🟢 **Great!** Feature this review as social proof (website/ads)."
+        elif confidence >= 70:
+            return "🔵 **Positive:** Send a thank-you coupon for loyalty."
+        else:
+            return "⚪ **Mixed/weak positive:** No immediate action, but track."
+
 def analyse_sentiment(review_text, model_choice):
     if not review_text or len(review_text.strip()) < 5:
         return ("⚠️ Please enter a review with at least 5 characters.",
-                "", "", "")
+                "", "", "", 0, "")
+
     text = review_text.strip()
+
     if model_choice == "Both models":
         sp_, sp_pos, sp_neg = predict_svm(text)
         lp_, lp_pos, lp_neg = predict_lstm(text)
@@ -183,23 +202,34 @@ def analyse_sentiment(review_text, model_choice):
                    f"LSTM → P(positive): {make_bar(lp_pos)}")
         interp  = build_interpretation(text, sp_, sp_pos,
                                        lp_, lp_pos, both=True)
+        # For "Both models", we use SVM's confidence for the action (or average)
+        confidence = max(sp_pos, sp_neg) * 100
+        pred_label = s_label
+        next_step  = get_next_step(pred_label, confidence, model_choice)
+
     elif model_choice == "SVM (LinearSVC + TF-IDF)":
         pred, p_pos, p_neg = predict_svm(text)
         label  = "POSITIVE 😊" if pred == 1 else "NEGATIVE 😞"
         result = f"**SVM:** {label}  ({max(p_pos,p_neg)*100:.1f}%)"
         bars   = (f"P(positive): {make_bar(p_pos)}\n"
                   f"P(negative): {make_bar(p_neg)}")
-        interp = build_interpretation(
-            text, pred, p_pos, model_name="SVM")
-    else:
+        interp = build_interpretation(text, pred, p_pos, model_name="SVM")
+        confidence = max(p_pos, p_neg) * 100
+        pred_label = label
+        next_step  = get_next_step(pred_label, confidence, model_choice)
+
+    else:  # Bidirectional LSTM
         pred, p_pos, p_neg = predict_lstm(text)
         label  = "POSITIVE 😊" if pred == 1 else "NEGATIVE 😞"
         result = f"**BiLSTM:** {label}  ({max(p_pos,p_neg)*100:.1f}%)"
         bars   = (f"P(positive): {make_bar(p_pos)}\n"
                   f"P(negative): {make_bar(p_neg)}")
-        interp = build_interpretation(
-            text, pred, p_pos, model_name="BiLSTM")
-    return result, bars, interp, build_stats(text)
+        interp = build_interpretation(text, pred, p_pos, model_name="BiLSTM")
+        confidence = max(p_pos, p_neg) * 100
+        pred_label = label
+        next_step  = get_next_step(pred_label, confidence, model_choice)
+
+    return result, bars, interp, build_stats(text), confidence, next_step
 
 svm_r  = comparison["svm"]
 lstm_r = comparison["lstm"]
@@ -273,31 +303,40 @@ with gr.Blocks(
     prob_bar     = gr.Markdown(label="Probability")
     interp_text  = gr.Markdown(label="Interpretation")
     stats_text   = gr.Markdown(label="Review Stats")
+    
+    
+    confidence_slider = gr.Slider(0, 100, label="Confidence (%)", interactive=False, visible=True)
+    next_step_box     = gr.Markdown(label="📌 Recommended Action")
+
+  
     gr.HTML("<hr style='border-color:#C0392B;opacity:0.2'>")
     gr.Examples(examples=EXAMPLES,
                 inputs=[review_input, model_choice],
                 label="Try these examples")
     
-    # ─── Event handlers ─────────────────────────────────────────────
+    # ─── Event handlers ────────────────────────────────────────────
     submit_btn.click(
         fn=analyse_sentiment,
         inputs=[review_input, model_choice],
-        outputs=[result_label, prob_bar, interp_text, stats_text]
+        outputs=[result_label, prob_bar, interp_text, stats_text,
+                 confidence_slider, next_step_box]   # added slider and action
     )
 
-    # Use a named function instead of lambda to avoid Gradio 5 quirks
     def clear_all():
-        return "Both models", "", "", "", ""
-    
+        # Return values for all outputs (including new ones)
+        return "Both models", "", "", "", 0, ""
+
     clear_btn.click(
         fn=clear_all,
-        outputs=[model_choice, result_label, prob_bar, interp_text, stats_text]
+        outputs=[model_choice, result_label, prob_bar, interp_text, stats_text,
+                 confidence_slider, next_step_box]   # reset everything
     )
 
     review_input.submit(
         fn=analyse_sentiment,
         inputs=[review_input, model_choice],
-        outputs=[result_label, prob_bar, interp_text, stats_text]
+        outputs=[result_label, prob_bar, interp_text, stats_text,
+                 confidence_slider, next_step_box]   # same as submit
     )
 
 
